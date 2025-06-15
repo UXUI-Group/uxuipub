@@ -2,7 +2,6 @@ export interface HeaderProps {
   logo?: string
   isLoggedIn?: boolean
   userName?: string
-  onLogoClick?: () => void
   onLoginClick?: () => void
   onLogoutClick?: () => void
 }
