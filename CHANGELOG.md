@@ -27,3 +27,12 @@
 - 기본 폴더 트리 구조 추가
 
 [0.1.2]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.2
+
+## [0.1.3] - 2025-06-16
+
+### 수정
+
+- 빌드 오류 수정
+- header에서 사용하지 않는 onLogoClick 삭제
+
+[0.1.3]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.3
