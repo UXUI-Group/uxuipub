@@ -1,94 +1,109 @@
-import { config } from '../config';
-import styles from "./page.module.css";
+'use client'
+
+import React from 'react'
+import { Header } from '@/components/layouts/Header'
+import { Footer } from '@/components/layouts/Footer'
+import { Card } from '@/components/blocks/Card'
+import { Button } from '@/components/elements/Button'
+import { config } from '@/config'
+import './home.scss'
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <img
-          className={styles.logo}
-          src={`${config.basePath}/next.svg`}
-          alt="Next.js logo"
-          width={180}
-          height={38}
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const featuredProjects = [
+    {
+      id: 1,
+      title: "디자인 시스템",
+      content: "체계적인 UI 컴포넌트 라이브러리를 구축하여 일관된 사용자 경험을 제공합니다.",
+      imageUrl: `${config.basePath}/next.svg`
+    },
+    {
+      id: 2,
+      title: "모바일 앱 UI",
+      content: "반응형 웹과 네이티브 앱을 위한 현대적인 UI/UX 디자인을 제작합니다.",
+      imageUrl: `${config.basePath}/vercel.svg`
+    },
+    {
+      id: 3,
+      title: "웹 접근성",
+      content: "모든 사용자가 접근 가능한 웹사이트를 위한 접근성 가이드라인을 준수합니다.",
+      imageUrl: `${config.basePath}/next.svg`
+    }
+  ]
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              className={styles.logo}
-              src={`${config.basePath}/vercel.svg`}
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+  return (
+    <div className="home-page">
+      <Header logo="UXUI Pub" />
+      
+      <main className="home-main">
+        {/* Hero Section */}
+        <section className="hero">
+          <div className="hero__container">
+            <h1 className="hero__title">
+              창조적인 UI/UX 디자인으로<br />
+              사용자 경험을 혁신합니다
+            </h1>
+            <p className="hero__description">
+              체계적인 디자인 시스템과 현대적인 웹 기술을 통해<br />
+              사용자 중심의 디지털 경험을 만들어갑니다.
+            </p>
+            <div className="hero__actions">
+              <Button variant="type_a" size="large">
+                프로젝트 보기
+              </Button>
+              <Button variant="core" size="large">
+                문의하기
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Projects */}
+        <section className="featured">
+          <div className="featured__container">
+            <h2 className="featured__title">주요 프로젝트</h2>
+            <p className="featured__description">
+              다양한 프로젝트를 통해 축적된 경험과 노하우를 확인해보세요.
+            </p>
+            
+            <div className="featured__grid">
+              {featuredProjects.map((project) => (
+                <Card
+                  key={project.id}
+                  title={project.title}
+                  content={project.content}
+                  imageUrl={project.imageUrl}
+                  variant="elevated"
+                  actions={
+                    <div className="card-actions">
+                      <Button variant="core" size="small">
+                        자세히 보기
+                      </Button>
+                      <Button variant="type_a" size="small">
+                        데모 보기
+                      </Button>
+                    </div>
+                  }
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="cta">
+          <div className="cta__container">
+            <h2 className="cta__title">프로젝트를 시작해보세요</h2>
+            <p className="cta__description">
+              새로운 아이디어를 현실로 만들어드립니다.
+            </p>
+            <Button variant="type_a" size="large">
+              지금 시작하기
+            </Button>
+          </div>
+        </section>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            aria-hidden
-            src={`${config.basePath}/file.svg`}
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            aria-hidden
-            src={`${config.basePath}/window.svg`}
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            aria-hidden
-            src={`${config.basePath}/globe.svg`}
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <Footer />
     </div>
-  );
+  )
 }
