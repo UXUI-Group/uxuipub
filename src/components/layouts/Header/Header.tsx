@@ -11,7 +11,6 @@ export const Header: React.FC<HeaderProps> = ({
   logo = 'UXUI Pub',
   isLoggedIn = false,
   userName,
-  onLogoClick,
   onLoginClick,
   onLogoutClick
 }) => {
