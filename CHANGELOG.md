@@ -19,3 +19,11 @@
 - 배포된 정적 작업물에 이미지 노출 되도록 이미지 경로 수정
 
 [0.1.1]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.1
+
+## [0.1.2] - 2025-06-16
+
+### 추가
+
+- 기본 폴더 트리 구조 추가
+
+[0.1.2]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.2
