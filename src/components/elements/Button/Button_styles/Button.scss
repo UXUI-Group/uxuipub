@@ -1,2 +1,18 @@
+@import '../../../../styles/globals.scss';
 @import './variants/core.scss';
 @import './variants/type_a.scss';
+
+// Button 컴포넌트에서 전역 스타일 상속받기
+.button {
+  @include global-typography;
+
+  // 버튼 특정 스타일
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+  // 전역 링크 스타일 적용 (버튼이 링크로 사용될 경우)
+  &:has(a) {
+    @include global-links;
+  }
+}

@@ -1,0 +1,2239 @@
+._hidden {
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.quickbookings {
+  &__panel {
+    display: none;
+  }
+  &__panel.-active {
+    display: block;
+  }
+}
+
+.booking-widget {
+  position: relative;
+  text-align: left;
+  &__tabs {
+    display: inline-block;
+  }
+
+  &__tab {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 3.2rem;
+  }
+  &__item {
+    display: flex;
+    min-width: 8.6rem;
+    padding: 0.2rem 1.8rem;
+    border-radius: 3.2rem;
+    transition: 0.2s;
+
+    @media (min-width: 1060px) {
+      min-width: auto;
+      padding: 0.2rem 2.4rem;
+    }
+
+    &.-active {
+      background-color: #051766;
+      margin: -1px;
+      .booking-widget__item-press {
+        font-weight: 400;
+        color: #fff;
+      }
+    }
+  }
+
+  &__item-press {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 3.2rem;
+    line-height: 1.35;
+    outline: 0;
+    font-size: 1.4rem;
+    font-weight: normal;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    word-break: break-word;
+    color: #051766;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @media (min-width: 1060px) {
+      min-height: 3.4rem;
+      font-size: 1.6rem;
+    }
+  }
+  &__side-wrap {
+    @media (min-width: 1060px) {
+      float: left;
+      width: auto;
+      margin-top: 0;
+      margin-right: 3.5rem;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+  }
+
+  &__label {
+    margin-bottom: 0;
+    word-break: break-word;
+
+    @media (min-width: 1060px) {
+      display: flex;
+      align-items: center;
+      height: 2.6rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.9rem;
+    }
+  }
+
+  &__find {
+    width: 100%;
+    min-height: 4.8rem;
+    padding: 0 0.5rem;
+    overflow: hidden;
+    border: 0;
+    border-radius: $radius-full;
+    outline: 0;
+    background: $color-fill-interaction-cta;
+    color: $color-text-label;
+    font-weight: 400;
+    font-size: 1.6rem;
+    cursor: pointer;
+
+    @media (min-width: 1060px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:focus,
+    &:hover {
+      box-shadow: 0 0 0 0.2rem #fff, 0 0 0 0.3rem $color-border-primary;
+    }
+
+    &[disabled] {
+      // border: 0.1rem solid $color2;
+      // background-color: $color2;
+      color: #fff;
+      cursor: not-allowed;
+    }
+  }
+  &__panel {
+    display: none;
+    clear: both;
+    padding: 3rem 2rem 2rem;
+    background-color: #fff;
+    border-radius: 0 0 1.2rem 1.2rem;
+
+    @media (min-width: 1060px) {
+      min-height: 23rem;
+      padding: 3rem 4rem 1rem;
+      border-radius: 2rem;
+      box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &:hover,
+    &:focus {
+      outline: 0;
+    }
+
+    &.-active {
+      display: block;
+    }
+  }
+}
+.quickbookings {
+  &__type-item {
+    color: $color-text-body;
+  }
+  &__booking-type {
+    position: relative;
+    text-align: center;
+    font-size: 0;
+    margin: 0.9rem -2rem 0; //영문 줄바꿈이 싫다해서 넣는 것
+
+    @media (min-width: 1060px) {
+      display: inline-block;
+      height: 3.8rem;
+      line-height: 3.8rem;
+      margin: 0 0 3rem;
+      vertical-align: top;
+      max-width: 45%;
+      text-align: left;
+      z-index: 1;
+    }
+
+    &:after {
+      @media (min-width: 1060px) {
+        display: block;
+        width: 100%;
+        content: '';
+        clear: both;
+      }
+    }
+  }
+
+  &__type {
+    display: inline-block;
+    text-align: center;
+  }
+
+  &__type-item {
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 0 1.2rem;
+
+    @media (min-width: 1060px) {
+      margin-top: 0;
+      padding: 0 1.4rem;
+    }
+
+    [type='radio'] {
+      top: 0;
+      width: 100%;
+      height: calc(100% - 0.5rem);
+
+      &:focus ~ label:before {
+        box-shadow: none;
+      }
+    }
+
+    [type='radio'] ~ label {
+      min-height: 30px;
+      margin-bottom: 0;
+      padding: 0 0.2rem 0.4rem;
+      color: $color-text-body;
+      text-align: center;
+      font-size: 1.6rem;
+      vertical-align: middle;
+
+      &:before {
+        content: none;
+      }
+
+      &:focus:before,
+      &:hover:before {
+        box-shadow: none;
+      }
+
+      [lang='en'] & {
+        @media (max-width: 1060px) {
+          font-size: 1.5rem;
+          padding: 0 0 0.4rem;
+        }
+      }
+    }
+
+    [type='radio']:checked ~ label {
+      color: $color-text-body;
+      font-weight: 700;
+
+      &:before {
+        position: absolute;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        right: 0;
+        height: 3px;
+        width: 100%;
+        background: $color-fill-surface-inverse;
+        border-color: $color-border-primary;
+        border-radius: 0.2rem;
+        content: '';
+      }
+
+      &:focus:before,
+      &:hover:before {
+        box-shadow: none;
+      }
+
+      .-ecc-banner &:before {
+        background: $color-brand-darkblue-100;
+        border-color: $color-brand-darkblue-100;
+      }
+    }
+
+    [type='radio']:focus ~ label,
+    label:hover {
+      outline: 0;
+      border-radius: 0.3rem;
+      box-shadow: inset 0 0 0 1px $color-border-primary;
+    }
+
+    [lang='en'] & {
+      &:nth-of-type(1) {
+        padding: 0;
+      }
+
+      @media (max-width: 1060px) {
+        &:nth-of-type(2) {
+          padding: 0 1.4rem;
+        }
+      }
+
+      @media (min-width: 1060px) {
+        &:nth-of-type(2) {
+          padding: 0 2.8rem;
+        }
+      }
+    }
+  }
+
+  &__type-link {
+    display: inline-flex;
+    margin-top: 0.8rem;
+    padding: 0 1.2rem;
+
+    @media (min-width: 1060px) {
+      margin-top: 0;
+      padding: 0 0.8rem;
+    }
+
+    .opener {
+      @media (max-width: 1059px) {
+        position: relative;
+        top: -0.4rem;
+      }
+    }
+
+    .popover.-active {
+      @media (min-width: 1060px) {
+        width: 50rem;
+      }
+    }
+  }
+
+  &__multiple {
+    //다구간
+    position: relative;
+    display: inline-block;
+    min-height: 3rem;
+    padding: 0 0.2rem 0.4rem 0.2rem;
+    color: $color-text-body;
+    text-decoration: underline;
+    line-height: 1.58;
+    font-size: 1.6rem;
+    vertical-align: middle;
+
+    @media (min-width: 1060px) {
+      // min-width: 5.5rem;
+      margin-left: 0;
+    }
+
+    @include ux-focus();
+
+    [lang='en'] & {
+      font-size: 1.5rem;
+      padding: 0 0 0.4rem 0;
+    }
+  }
+
+  &__booking-wrap {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1060px) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  //박스 정렬
+  &__aligner {
+    @media (min-width: 1060px) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      // column-gap: 4rem;
+      width: calc(75% + 4rem);
+      padding-left: 2rem;
+    }
+  }
+
+  &__separate {
+    @media (min-width: 1060px) {
+      padding: 0;
+    }
+
+    &.-itinerary {
+      padding: 1.4rem 0;
+      border-bottom: 0.1rem dashed #ddd;
+
+      @media (min-width: 1060px) {
+        width: 25%;
+        margin-left: -4rem;
+        border: 0;
+        padding: 0 2rem;
+      }
+
+      & .booking-widget__message {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &.-date {
+      @media (min-width: 1060px) {
+        width: 39%;
+        padding: 1rem 0 0.9rem;
+        padding: 0;
+      }
+    }
+
+    &.-passenger {
+      padding: 1rem 0 0;
+
+      @media (min-width: 1060px) {
+        width: 16.74%;
+        padding: 0;
+      }
+    }
+
+    &.-seats {
+      padding: 1rem 0 0;
+
+      @media (min-width: 1060px) {
+        width: 18.262%;
+        padding: 0;
+      }
+    }
+
+    &.-search {
+      margin-top: 3rem;
+      padding: 0;
+      border-bottom: none;
+
+      @media (min-width: 1060px) {
+        width: 12.827%;
+        margin-right: 0;
+        margin-top: 3.3rem;
+      }
+    }
+
+    &.-skyteam {
+      padding: 1rem 0 0;
+      border-bottom: none;
+
+      @media (min-width: 1060px) {
+        position: absolute;
+        right: 4rem;
+        top: 8.8rem;
+        padding: 0;
+        margin-right: 0;
+        text-align: right;
+      }
+    }
+    &.-flexible-date {
+      padding: 0.2rem 0 0.4rem;
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+
+      @media (min-width: 1060px) {
+        position: absolute;
+        right: 4rem;
+        top: 8.8rem;
+        padding: 0;
+        margin-right: 0;
+        text-align: right;
+        width: 50%;
+        justify-content: flex-end;
+        z-index: 0;
+      }
+    }
+  }
+
+  //스카이팀
+  &__option-wrap {
+    display: inline-block;
+    color: $color-text-body;
+    text-align: right;
+    font-size: 1.4rem;
+    padding-right: 0.1rem;
+    text-decoration: underline;
+
+    @include ux-focus();
+  }
+
+  &__label {
+    margin-bottom: 0;
+    word-break: break-word;
+
+    @media (min-width: 1060px) {
+      display: flex;
+      align-items: center;
+      height: 2.6rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.9rem;
+    }
+  }
+
+  //여정
+  &__aligner-inner {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin: 0.1rem 0 -0.5rem;
+
+    @media (min-width: 1060px) {
+      margin: 0.3rem 0 0;
+    }
+  }
+
+  &__location {
+    display: block;
+    width: 41%;
+    border: 0;
+    background: none transparent;
+    cursor: pointer;
+
+    @media (min-width: 1060px) {
+      width: 40.5%;
+      letter-spacing: -0.01em;
+    }
+
+    &.-from {
+      float: left;
+    }
+
+    &.-to {
+      float: right;
+      order: 2;
+    }
+
+    @include ux-outfocus();
+  }
+
+  &__swap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+    display: block;
+    width: 4.4rem;
+    height: 4.4rem;
+    margin: 1.6rem auto 0;
+    border-radius: $radius-full;
+    border: 1px solid $color-border-tertiary;
+    background: #fff url('#{$IMG_PATH}/icon--booking-swap.svg') no-repeat center center; //바꿨는데안바뀜
+    background-size: 28px auto;
+    cursor: pointer;
+    order: 1;
+
+    @media (min-width: 1060px) {
+      width: 4.2rem;
+      height: 4.2rem;
+      margin-top: 1.2rem;
+    }
+
+    &:hover,
+    &:focus {
+      outline: 0;
+      box-shadow: inset 0 0 0 1px $color-border-primary;
+    }
+
+    &[disabled] {
+      background: url('#{$IMG_PATH}/icon--booking-swap-gray.svg') no-repeat center center;
+      background-size: 28px auto;
+      cursor: not-allowed;
+
+      
+    }
+  }
+
+  &__code {
+    display: inline-block;
+    width: 100%;
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 1.55;
+    color: $color-text-label;
+    vertical-align: middle;
+
+    .-off & {
+      color: $color-text-body-secondary;
+    }
+
+    &[aria-hidden='true'] {
+      color: $color-text-body-secondary;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 1060px) {
+      height: 4.4rem;
+      line-height: 1.3;
+    }
+  }
+
+  &__airport {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: $color-text-body;
+    margin-left: -0.4rem;
+
+    @media (min-width: 1060px) {
+      margin-top: 0.2rem;
+      font-size: 1.6rem;
+    }
+
+    .-off & {
+      color: $color-text-body-secondary;
+    }
+
+    &[aria-hidden='true'] {
+      font-weight: normal;
+      color: $color-text-body-secondary;
+    }
+  }
+
+  //탑승일
+  &__datepicker {
+    box-sizing: border-box;
+    appearance: none;
+    display: block;
+    width: 100%;
+    min-height: 3rem;
+    padding: 1.3rem 0;
+    border: 0;
+    color: $color-text-body;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    background: none;
+    border-bottom: 0.1rem solid $color-border-primary;
+    transition: padding 0.2s, border 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+    font-size: 1.4rem;
+
+
+    @media (min-width: 375px) and (max-width: 409px) {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: 410px) and (max-width: 1059px) {
+      font-size: 1.5rem;
+
+    }
+
+    @media (min-width: 1060px) {
+      min-height: 4.3rem;
+      padding: 0;
+      font-size: 1.6rem;
+      letter-spacing: 0;
+    }
+
+    &:focus,
+    &:hover {
+      outline: 0;
+      border-radius: 0.3rem;
+      box-shadow: inset 0 0 0 1px $color-border-primary;
+      border-bottom-color: $color-text-body;
+
+      @media (min-width: 1060px) {
+        padding-left: 1rem;
+      }
+
+      // .app & {
+      //   .focusless();
+      // }
+    }
+
+    .-error.forms & {
+      border-bottom-color: $color-border-negative;
+    }
+  }
+
+  &__date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-text-body;
+    font-weight: 400;
+    line-height: 1.3;
+    border-bottom: 0 none;
+
+    @media (min-width: 1060px) {
+      justify-content: flex-start;
+    }
+
+    &::before {
+      display: inline-block;
+      width: 2.8rem;
+      min-width: 2.8rem;
+      height: 2.8rem;
+      margin-right: 0.5rem;
+      background: url('#{$IMG_PATH}/icon--calendar.svg') no-repeat left 0;
+      background-size: 2.8rem 2.8rem;
+      vertical-align: middle;
+      content: '';
+
+      @media (min-width: 1060px) {
+        width: 2.4rem;
+        min-width: 2.4rem;
+        height: 2.4rem;
+        background-position: 100% 50%;
+        background-size: 2.4rem 2.4rem;
+      }
+    }
+
+    &.-off {
+      color: $color-text-body-secondary;
+      font-weight: normal;
+      line-height: 1.3;
+      text-align: left;
+      font-size: 1.6rem;
+      letter-spacing: initial;
+    }
+
+    .-from,
+    .-to {
+      display: inline-block;
+      text-align: left;
+      line-height: 1.3;
+      word-break: break-word;
+    }
+
+    .-wave {
+      padding: 0 0.4rem;
+      line-height: 1;
+    }
+  }
+
+  &__select-data {
+    display: inline-block;
+    white-space: normal;
+    font-weight: 400;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+
+    &.-off {
+      color: $color-text-body-secondary;
+      font-weight: normal;
+    }
+  }
+
+  &__passenger {
+    box-sizing: border-box;
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 4.3rem;
+    padding: 0 3rem 0 0;
+    border: 0;
+    background: url('#{$IMG_PATH}/icon--profile.svg') no-repeat right center;
+    background-size: 3rem 3rem;
+    color: $color-text-label;
+    font-weight: 400;
+    font-size: 1.6rem;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 0 none;
+    border-bottom: 0.1rem solid $color-border-primary;
+
+    @include ux-focus();
+
+    @media (min-width: 1060px) {
+      height: 4.3rem;
+      background-size: 2.4rem 2.4rem;
+
+      :lang(en) &,
+      :lang(zh-hk) &,
+      :lang(zh-cn) &,
+      :lang(ja) & {
+        font-size: 1.5rem;
+      }
+
+      :lang(ja) & {
+        letter-spacing: -0.06em;
+      }
+    }
+
+    &:focus,
+    &:hover {
+      @media (min-width: 1060px) {
+        padding-left: 0;
+        padding-right: 3.4rem;
+        background-position: right 0.4rem center;
+      }
+
+      @media (min-width: 1060px) {
+        .quickbookings__select-data {
+          padding-left: 1rem;
+          transition: padding 0.2s, border 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+      }
+    }
+
+    .-error.forms & {
+      border-bottom-color: $color-border-negative;
+    }
+  }
+
+  //좌석등급
+  &__select {
+    &.select {
+      height: 4.3rem;
+      border-bottom: 0.1rem solid #767676;
+      font-weight: bold;
+      font-size: 1.6rem;
+
+      @media (min-width: 1060px) {
+        max-height: 4.3rem;
+      }
+
+      .-error.forms & {
+        border-bottom-color: $color-border-negative;
+      }
+    }
+  }
+
+  &__seatclass {
+    box-sizing: border-box;
+    appearance: none;
+    display: block;
+    width: 100%;
+    min-height: 4.3rem;
+    padding: 0 3rem 0 0;
+    border: 0;
+    background: url('#{$IMG_PATH}/icon--class.svg') no-repeat right center;
+    background-size: 3rem 3rem;
+    color: $color-text-label;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 0.1rem solid $color-border-primary;
+
+    &[readonly],
+    &[disabled] {
+      border-bottom-color: #ddd;
+      cursor: not-allowed;
+
+      &:focus,
+      &:hover {
+        padding-left: 0;
+        padding-right: 0;
+        background-position: right center;
+        box-shadow: none;
+
+        .quickbookings__select-data {
+          padding-left: 0;
+        }
+      }
+    }
+
+    @media (min-width: 1060px) {
+      min-height: 4.3rem;
+      background-size: 2.4rem 2.4rem;
+
+    }
+
+    &:focus,
+    &:hover {
+      @media (min-width: 1060px) {
+        padding-left: 0;
+        padding-right: 3.4rem;
+        background-position: right 0.4rem center;
+      }
+
+      .quickbookings__select-data {
+        @media (min-width: 1060px) {
+          padding-left: 1rem;
+          transition: padding 0.2s, border 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+      }
+    }
+
+    .-error.forms & {
+      border-bottom-color: $color-border-negative;
+    }
+  }
+
+  //안내 텍스트
+  &__text {
+    margin-top: 1rem;
+
+    @media (min-width: 1060px) {
+      width: 100%;
+      margin-top: 0;
+      padding: 0.9rem 0 0;
+    }
+
+    .caption {
+      @media (min-width: 1060px) {
+        font-size: 1.2rem;
+
+        :lang(ja) & {
+          letter-spacing: -0.06rem;
+        }
+      }
+    }
+  }
+}
+
+//메인 탭2-예약조회
+.quickmytrips {
+  $this: '.quickmytrips';
+  max-width: 128rem;
+  margin: 0 auto;
+  word-wrap: break-word;
+
+  @media (min-width: 1060px) {
+    margin-top: 1rem;
+  }
+
+  //박스 정렬
+  &__aligner {
+    @media (min-width: 1060px) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+      margin: 2.7rem 0 0;
+    }
+
+    &.-checkbox {
+      @media (min-width: 1060px) {
+        position: relative;
+        padding-bottom: 12rem;
+      }
+    }
+  }
+
+  &__separate {
+    padding: 0 0 1rem;
+
+    @media (min-width: 1060px) {
+      padding: 0;
+    }
+
+    &.-number {
+      @media (min-width: 1060px) {
+        width: 26%;
+      }
+    }
+
+    &.-date {
+      @media (min-width: 1060px) {
+        width: 20.834%;
+      }
+    }
+
+    &.-lastname {
+      position: relative;
+
+      @media (min-width: 1060px) {
+        width: 15%;
+      }
+    }
+
+    &.-firstname {
+      @media (min-width: 1060px) {
+        width: 15%;
+      }
+    }
+
+    &.-search {
+      margin-top: 2rem;
+      padding: 0;
+      border-bottom: none;
+
+      @media (min-width: 1060px) {
+        width: 9.834%;
+        margin-right: 0;
+        margin-top: 3.3rem;
+      }
+    }
+  }
+
+  &__label {
+    margin-bottom: 0;
+    word-break: break-word;
+
+    @media (min-width: 1060px) {
+      display: flex;
+      align-items: center;
+      height: 2.6rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.9rem;
+    }
+  }
+
+  //예약번호 또는 항공권번호, 승객 성, 승객 이름
+  &__input[type='text'] {
+    height: 4.3rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    border-bottom: 0.1rem solid $color-border-primary;
+
+    &:focus,
+    &:hover {
+      padding: 0;
+    }
+
+    @media (min-width: 1060px) {
+      height: 4.3rem;
+
+      &:focus,
+      &:hover {
+        padding: 0 1rem;
+      }
+    }
+  }
+
+  //탑승일
+  &__datepicker {
+    box-sizing: border-box;
+    appearance: none;
+    display: block;
+    width: 100%;
+    min-height: 4.3rem;
+    border: 0;
+    color: $color-text-body;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    background: none;
+    border-bottom: 0.1rem solid $color-border-primary;
+    transition: padding 0.2s, border 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+    font-size: 1.6rem;
+
+    @media (min-width: 1060px) {
+      min-height: 4.3rem;
+      padding: 0;
+      font-size: 1.6rem;
+      letter-spacing: 0;
+    }
+
+    &:focus,
+    &:hover {
+      outline: 0;
+      border-radius: 0.3rem;
+      box-shadow: inset 0 0 0 1px $color-border-primary;
+      border-bottom-color: $color-text-body;
+
+      @media (min-width: 1060px) {
+        padding-left: 1rem;
+      }
+
+      // .app & {
+      //   .focusless();
+      // }
+    }
+
+    .-error.forms & {
+      border-bottom-color: $color-border-negative;
+    }
+  }
+
+  &__date {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: $color-text-label;
+    font-weight: 400;
+    line-height: 1.3;
+    border-bottom: 0 none;
+
+    @media (min-width: 1060px) {
+      justify-content: flex-start;
+    }
+
+    &::before {
+      display: inline-block;
+      width: 2.8rem;
+      min-width: 2.8rem;
+      height: 2.8rem;
+      margin-right: 0.5rem;
+      background: url('#{$IMG_PATH}/icon--calendar.svg') no-repeat left 0;
+      background-size: 2.8rem 2.8rem;
+      vertical-align: middle;
+      content: '';
+
+      @media (min-width: 1060px) {
+        width: 2.4rem;
+        min-width: 2.4rem;
+        height: 2.4rem;
+        background-position: 100% 50%;
+        background-size: 2.4rem 2.4rem;
+      }
+    }
+
+    &.-off {
+      color: $color-text-body-secondary;
+      font-weight: normal;
+      line-height: 1.3;
+      text-align: left;
+      font-size: 1.6rem;
+      letter-spacing: initial;
+    }
+
+    .-from,
+    .-to {
+      display: inline-block;
+      text-align: left;
+      line-height: 1.3;
+      word-break: break-word;
+    }
+
+    .-wave {
+      padding: 0 0.4rem;
+      line-height: 1;
+    }
+  }
+
+  //조회 후
+  &__tit-wrap {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 2.4rem;
+    font-size: 1.4rem;
+
+    @media (min-width: 1060px) {
+      column-gap: 1.2rem;
+      justify-content: flex-start;
+      flex-direction: row;
+      margin-bottom: 0;
+      font-size: 1.6rem;
+    }
+  }
+
+  &__tit {
+    width: 72%;
+    font-weight: 700;
+    text-align: left;
+    color: $color-text-body;
+
+    @media (min-width: 1060px) {
+      order: 1;
+      padding: 0;
+    }
+
+    &.-positive {
+      color: $color-text-positive;
+    }
+
+    &.-negative {
+      color: $color-text-negative;
+    }
+
+    &.-deadline,
+    &.-important,
+    &.-delay,
+    &.-cancel {
+      color: $color-text-negative;
+    }
+  }
+
+  &__book-num {
+    height: fit-content;
+    padding: 0.2rem 0.8rem;
+    margin-left: auto;
+    font-weight: 400;
+    text-align: right;
+    color: $color-text-body;
+    font-size: 1.4rem;
+    background-color: $color-fill-surface-highlight;
+    border-radius: 0.8rem;
+
+    @media (min-width: 1060px) {
+      order: 3;
+    }
+  }
+
+  &__book-num-tit {
+    @media (max-width: 1059px) {
+      overflow: hidden;
+      white-space: nowrap;
+      clip: rect(1px, 1px, 1px, 1px);
+      clip-path: inset(50%);
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+  }
+
+  &__staff-nickname {
+    width: 100%;
+    order: 3;
+    margin-top: 0.4rem;
+    color: $color-text-body-secondary;
+    font-size: 1.2rem;
+
+    @media (min-width: 1060px) {
+      text-align: right;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__staff-ticket {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    @media (min-width: 1060px) {
+      position: static;
+    }
+  }
+
+  &__staff-ticket {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    order: 3;
+    @media (min-width: 1060px) {
+      position: static;
+      width: 100%;
+      padding-top: 1.2rem;
+      text-align: right;
+    }
+  }
+
+  &__staff-ticket-link {
+    display: flex;
+    align-items: center;
+    column-gap: 0.6rem;
+    position: relative;
+    text-decoration: none;
+
+    @media (min-width: 1060px) {
+      display: inline-flex;
+      order: unset;
+    }
+
+    & {
+      #{$this}__staff-ticket-text {
+        text-decoration: underline;
+      }
+
+      @include ux-outfocus();
+    }
+  }
+
+  &__staff-ticket-text {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: $color-text-body;
+
+    @media (min-width: 1060px) {
+      font-size: 1.6rem;
+    }
+
+    a & {
+      text-decoration: underline;
+    }
+  }
+
+  &__nickname-case {
+    // color: $color-text-body;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    @media (min-width: 1060px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__box {
+    position: relative;
+
+    @media (min-width: 1060px) {
+      display: flex;
+    }
+
+    #{$this}__btns {
+      @media (min-width: 1060px) {
+        padding-left: 4rem;
+      }
+    }
+  }
+
+  &__box-inner {
+    @media (min-width: 1060px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      //width: 100%;
+      flex: 1;
+      position: relative;
+      min-height: 14.2rem;
+      padding-right: 4rem;
+      border-right: 1px solid $color-border-divider-primary;
+    }
+  }
+
+  &__ticket {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1060px) {
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 6rem;
+    }
+  }
+
+  &__book-route {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    @media (min-width: 1060px) {
+      margin-bottom: 0;
+      margin-left: -1rem;
+    }
+  }
+
+  &__location {
+    width: 9.8rem;
+    word-break: break-all;
+    text-align: center;
+
+    @media (min-width: 1060px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      width: auto;
+      min-width: 10rem;
+    }
+  }
+
+  &__airplane {
+    position: relative;
+    display: block;
+    width: 6.4rem;
+    height: 3.6rem;
+    margin-top: 1rem;
+
+    @media (min-width: 1060px) {
+      width: 7.2rem;
+      margin-top: 2rem;
+    }
+
+    &:after {
+      display: block;
+      width: 3.6rem;
+      height: 3.6rem;
+      margin: 0 auto;
+      background: url('#{$IMG_PATH}/icon--aircraft-info.svg') no-repeat center center;
+      background-size: 3.6rem 3.6rem;
+      content: '';
+    }
+  }
+
+  &__code {
+    display: inline-block;
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 4.8rem;
+    color: $color-text-body;
+  }
+
+  &__airport {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: $color-text-body;
+
+    @media (min-width: 1060px) {
+      display: inline-block;
+      font-size: 1.6rem;
+      line-height: normal;
+    }
+  }
+
+  &__book-date {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.8rem;
+    font-weight: 400;
+    color: $color-text-body;
+
+    @media (min-width: 1060px) {
+      margin-bottom: 0;
+      line-height: 2.4rem;
+      font-size: 1.6rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .-more {
+      color: $color-text-positive;
+      font-weight: 400;
+
+      &.-negative {
+        color: $color-text-negative;
+      }
+    }
+
+    .-cancel {
+      display: block;
+      color: $color-text-body-secondary;
+      text-decoration: line-through;
+      font-weight: 400;
+      line-height: 1.8rem;
+
+      @media (min-width: 1060px) {
+        margin-bottom: 0;
+        line-height: 2.2rem;
+      }
+
+      .-more {
+        color: $color-text-body-secondary;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+
+    @media (min-width: 1060px) {
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 23.3%;
+    }
+  }
+
+  &__go {
+    color: $color-text-body;
+    font-size: 1.4rem;
+    text-decoration: none;
+    line-height: 2.2rem;
+
+    &:after {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-left: 0.2rem;
+      margin-top: -0.3rem;
+      content: '';
+      background: url('#{$IMG_PATH}/icon--arrow-right.svg') no-repeat center center;
+      background-size: 20px auto;
+      vertical-align: middle;
+    }
+
+    @media (min-width: 1060px) {
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+    }
+
+    @include ux-outfocus();
+
+    .-staff-ticket & {
+      display: inline-block;
+      order: 3;
+      width: auto;
+      max-width: none;
+      padding-left: 1.2rem;
+      text-align: right;
+      line-height: normal;
+
+      @media (min-width: 1060px) {
+        padding-left: 0;
+        order: unset;
+      }
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    min-height: 4.8rem;
+    margin: 0;
+    padding: 0 $size-20;
+    border-radius: $radius-full;
+    outline: 0;
+    border: 0;
+    background: $color-fill-interaction-cta;
+    color: $color-text-label;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: $color-text-body;
+    line-height: 1.58;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    appearance: none;
+    outline: 0;
+
+    @media (min-width: 1060px) {
+      width: auto;
+      min-width: 14.7rem;
+      flex: inherit;
+    }
+
+    &:focus,
+    &:hover {
+      box-shadow: 0 0 0 0.2rem #fff, 0 0 0 0.3rem $color-border-primary;
+    }
+
+    &.-ghost {
+      border: 2px solid $color-border-primary;
+      background-color: #fff;
+      color: $color-text-body;
+    }
+
+    .-staff-ticket & {
+      order: 1;
+      @media (min-width: 1060px) {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__btn-arrow {
+    position: absolute;
+    right: 0rem;
+    top: 6.3rem;
+    width: 4rem;
+    height: 5.5rem;
+    background: url('#{$IMG_PATH}/btn-mainquickmytrips-arrow.svg') no-repeat 0.8rem 50%;
+    border: 0;
+    cursor: pointer;
+    appearance: none;
+
+    @media (min-width: 1060px) {
+      position: static;
+      width: 7rem;
+      height: 4.4rem;
+      background-position: 50% 50%;
+    }
+  }
+
+  //조회 결과 없음
+  &__nodata {
+    margin: 1rem 0 3rem;
+    text-align: center;
+    font-size: 1.4rem;
+    color: $color-text-body;
+
+    @media (min-width: 1060px) {
+      margin-top: 3rem;
+      font-size: 1.6rem;
+    }
+
+    & ~ #{$this}__btns {
+      align-items: center;
+      width: auto;
+    }
+  }
+
+  &__mo-block {
+    display: block;
+
+    @media (min-width: 1060px) {
+      display: inline-block;
+    }
+  }
+
+  //안내 텍스트
+  &__text {
+    @media (min-width: 1060px) {
+      padding: 0.9rem 13.28% 0 53.5%;
+    }
+
+    .caption {
+      @media (min-width: 1060px) {
+        font-size: 1.2rem;
+
+        :lang(ja) & {
+          letter-spacing: -0.06rem;
+        }
+      }
+    }
+
+    &.-checkbox {
+      @media (min-width: 1060px) {
+        position: absolute;
+        bottom: 7.2rem;
+        left: 0;
+      }
+    }
+  }
+
+  &__selection {
+    margin: 1.2rem auto 2.8rem;
+
+    @media (min-width: 1060px) {
+      margin: 0;
+      position: absolute;
+      bottom: 2.6rem;
+    }
+
+    label {
+      font-size: 1.2rem;
+      color: $color-text-label;
+
+      @media (min-width: 1060px) {
+        font-size: 1.4rem;
+        // bottom:2.6rem;
+      }
+
+      &::before {
+        top: 0 !important;
+      }
+
+      & + .message {
+        @media (min-width: 1060px) {
+          position: absolute;
+          bottom: -2.6rem;
+        }
+      }
+    }
+  }
+
+  &__inner-check {
+    position: relative;
+  }
+}
+
+.quickstatus {
+  $this: '.quickstatus';
+  max-width: 128rem;
+  margin: 0 auto;
+  word-wrap: break-word;
+
+  &__panel {
+    display: none;
+
+    //.unfocus();
+
+    &.-active {
+      display: block;
+    }
+
+    &[tabindex]:focus {
+      outline: 1px solid $color-border-primary;
+    }
+  }
+
+  // 탭버튼 - 3depth 왕복/편도/다구간, 출도착지/편명
+  &__booking-type {
+    position: relative;
+    margin-top: 0.9rem;
+    text-align: center;
+    font-size: 0;
+
+    @media (min-width: 1060px) {
+      display: inline-block;
+      height: 3.8rem;
+      line-height: 3.8rem;
+      margin-top: 0;
+      margin-bottom: 3rem;
+      vertical-align: top;
+    }
+
+    &:after {
+      @media (min-width: 1060px) {
+        display: block;
+        width: 100%;
+        content: '';
+        clear: both;
+      }
+    }
+  }
+
+  &__type {
+    display: inline-block;
+    text-align: center;
+  }
+
+  &__type-item {
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 0 1.2rem;
+
+    @media (min-width: 1060px) {
+      margin-top: 0;
+      padding: 0 1.4rem;
+    }
+
+    [type='radio'] {
+      top: 0;
+      width: 100%;
+      height: calc(100% - 0.5rem);
+
+      &:focus ~ label:before {
+        box-shadow: none;
+      }
+    }
+
+    [type='radio'] ~ label {
+      min-height: 3rem;
+      margin-bottom: 0;
+      padding: 0 0.2rem 0.4rem;
+      color: $color-text-label;
+      text-align: center;
+      font-size: 1.6rem;
+      vertical-align: middle;
+
+      &:before {
+        content: none;
+      }
+
+      &:focus:before,
+      &:hover:before {
+        box-shadow: none;
+      }
+    }
+
+    [type='radio']:checked ~ label {
+      color: $color-text-label;
+      font-weight: 700;
+
+      &:before {
+        position: absolute;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        right: 0;
+        height: 3px;
+        width: 100%;
+        background: $color-border-primary;
+        border-color: $color-border-primary;
+        border-radius: 0.2rem;
+        content: '';
+      }
+
+      &:focus:before,
+      &:hover:before {
+        box-shadow: none;
+      }
+    }
+
+    [type='radio']:focus ~ label,
+    label:hover {
+      outline: 0;
+      border-radius: 0.3rem;
+      box-shadow: inset 0 0 0 1px $color-border-primary;
+    }
+  }
+
+  //박스 정렬
+  &__aligner {
+    @media (min-width: 1060px) {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
+
+  &__separate {
+    padding: 1rem 0;
+
+    @media (min-width: 1060px) {
+      margin-right: 3.35%;
+      padding: 0;
+    }
+
+    &.-itinerary {
+      padding: 1.4rem 0;
+      border-bottom: 0.1rem dashed #ddd;
+
+      @media (min-width: 1060px) {
+        width: calc(21.334% + 1rem);
+        margin-left: -1rem;
+        border: 0;
+        padding: 0;
+      }
+
+      & .booking-widget__message {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &.-date {
+      @media (min-width: 1060px) {
+        width: 41%;
+      }
+    }
+
+    &.-flightnum {
+      @media (min-width: 1060px) {
+        width: 21.334%;
+      }
+    }
+
+    &.-search {
+      margin-top: 2rem;
+      padding: 0;
+      border-bottom: none;
+      margin-left: auto;
+
+      @media (min-width: 1060px) {
+        width: 9.834%;
+        margin-right: 0;
+        margin-top: 3.3rem;
+      }
+    }
+  }
+
+  &__label {
+    margin-bottom: 0;
+    word-break: break-word;
+
+    @media (min-width: 1060px) {
+      display: flex;
+      align-items: center;
+      height: 2.6rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.9rem;
+    }
+  }
+
+  //편명
+  &__input[type='text'] {
+    height: 4.3rem;
+    font-weight: 400;
+    padding-left: 3rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    border-bottom: 0.1rem solid $color-border-primary;
+
+    &:focus,
+    &:hover {
+      padding-left: 3rem;
+      border-bottom: 0.1rem solid $color-border-primary;
+    }
+  }
+
+  &__preword {
+    position: absolute;
+    left: 0;
+    top: 0.9rem;
+    font-weight: 400;
+    color: $color-text-body;
+    height: 100%;
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  .placeholder {
+    left: 3rem;
+  }
+
+  //여정
+  &__aligner-inner {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0.1rem 0 -0.5rem;
+
+    @media (min-width: 1060px) {
+      margin: 0.3rem 0 0;
+    }
+  }
+
+  &__location {
+    display: block;
+    width: 41%;
+    border: 0;
+    background: none transparent;
+    cursor: pointer;
+
+    @media (min-width: 1060px) {
+      width: 40.5%;
+      letter-spacing: -0.01em;
+    }
+
+    &.-from {
+      float: left;
+    }
+
+    &.-to {
+      float: right;
+      order: 2;
+    }
+
+    @include ux-outfocus();
+  }
+
+  &__swap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+    display: block;
+    width: 4.4rem;
+    height: 4.4rem;
+    margin: 1.6rem auto 0;
+    border-radius: $radius-full;
+    border: 1px solid $color-border-tertiary;
+    background: #fff url('#{$IMG_PATH}/icon--booking-swap.svg') no-repeat center center; //바꿨는데안바뀜
+    background-size: 28px auto;
+    cursor: pointer;
+    order: 1;
+
+    @media (min-width: 1060px) {
+      width: 4.2rem;
+      height: 4.2rem;
+      margin-top: 1.2rem;
+    }
+
+    @include ux-outfocus();
+
+    &:hover,
+    &:focus {
+      outline: 0;
+      box-shadow: inset 0 0 0 1px $color-border-primary;
+    }
+
+    &[disabled] {
+      background: url('#{$IMG_PATH}/icon--booking-swap-gray.svg') no-repeat center center; //바꿨는데안바뀜
+      background-size: 28px auto;
+      cursor: not-allowed;
+      // .focusless();
+    }
+  }
+
+  &__code {
+    display: inline-block;
+    width: 100%;
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 1.55;
+    color: $color-text-label;
+    vertical-align: middle;
+
+    .-off & {
+      color: $color-text-body-secondary;
+    }
+
+    &[aria-hidden='true'] {
+      color: $color-text-body-secondary;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 1060px) {
+      height: 4.4rem;
+      line-height: 1.3;
+    }
+  }
+
+  &__airport {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1.57;
+    color: $color-text-label;
+    margin-left: -0.4rem;
+
+    @media (min-width: 1060px) {
+      margin-top: 0.2rem;
+      font-size: 1.6rem;
+    }
+
+    .-off & {
+      color: $color-text-body-secondary;
+    }
+
+    &[aria-hidden='true'] {
+      font-weight: normal;
+      color: $color-text-body-secondary;
+    }
+  }
+
+  //탑승일
+  &__datepicker {
+    box-sizing: border-box;
+    appearance: none;
+    display: block;
+    width: 100%;
+    min-height: 4.3rem;
+    border: 0;
+    color: $color-text-body;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    background: none;
+    border-bottom: 0.1rem solid $color-border-primary;
+    transition: padding 0.2s, border 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+    font-size: 1.4rem;
+
+    @media (min-width: 1060px) {
+      min-height: 4.3rem;
+      padding: 0;
+      font-size: 1.6rem;
+      letter-spacing: 0;
+    }
+
+    &:focus,
+    &:hover {
+      outline: 0;
+      border-radius: 0.3rem;
+      box-shadow: inset 0 0 0 1px $color-border-primary;
+      border-bottom-color: $color-border-primary;
+
+      @media (min-width: 1060px) {
+        padding-left: 1rem;
+      }
+    }
+
+    .-error.forms & {
+      border-bottom-color: $color-border-negative;
+    }
+  }
+
+  &__date {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: $color-text-label;
+    font-weight: 400;
+    line-height: 1.3;
+    border-bottom: 0 none;
+
+    &::before {
+      display: inline-block;
+      width: 2.8rem;
+      min-width: 2.8rem;
+      height: 2.8rem;
+      margin-right: 0.5rem;
+      background: url('#{$IMG_PATH}/icon--calendar.svg') no-repeat left 0;
+      background-size: 2.8rem 2.8rem;
+      vertical-align: middle;
+      content: '';
+
+      @media (min-width: 1060px) {
+        width: 2.4rem;
+        min-width: 2.4rem;
+        height: 2.4rem;
+        background-position: 100% 50%;
+        background-size: 2.4rem 2.4rem;
+      }
+    }
+  }
+}
+
+.selection {
+  position: relative;
+
+  [type='checkbox'],
+  [type='radio'] {
+    opacity: 0;
+    position: absolute;
+    top: 0.3rem;
+    left: 0;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+  }
+  label {
+    display: inline-block;
+  }
+}
+
+.opener {
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+  flex-shrink: 0;
+  display: inline-block;
+  width: 3.6rem;
+  height: 3.6rem;
+  border: 0;
+  border-radius: 50%;
+  background: url('#{$IMG_PATH}/ico-opener.svg') no-repeat 50% 50%;
+  background-size: 24px 24px;
+  cursor: pointer;
+
+  @include ux-focus();
+
+  &.-ex {
+    background: url('#{$IMG_PATH}/ico-example.svg') #fff no-repeat 50% 50%;
+    background-size: 24px 24px;
+
+    .payment-widget__express & {
+      background: url('#{$IMG_PATH}/ico-example.svg') no-repeat 50% 50%;
+      width: 2.4rem;
+      height: 2.4rem;
+      position: absolute;
+      bottom: 2.5rem;
+      right: 6.5rem;
+      margin: auto;
+
+      @media (min-width: 1060px) {
+        right: 4rem;
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  &.-small {
+    width: 2.4rem;
+    height: 2.4rem;
+
+    & + .popover {
+      margin-top: 0.7rem;
+
+      @media (min-width: 1060px) {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  &.-has-tip {
+    overflow: initial;
+    text-indent: 0;
+    position: relative;
+
+    &[aria-expanded*='true']:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      width: 1rem;
+      height: 0.8rem;
+      background: url('#{$IMG_PATH}/popover__edge.svg') no-repeat;
+      background-size: 10px 8px;
+      bottom: 100%;
+      z-index: 11;
+      transform: translateX(-50%) rotate(180deg);
+    }
+  }
+
+  &.-ellipsis {
+    width: 100%;
+    height: auto;
+    background: none;
+    text-indent: 0;
+    border-radius: 0;
+    display: block;
+    line-height: 1.58;
+    white-space: normal;
+
+    & + .-down {
+      margin-top: 0.4rem;
+    }
+  }
+
+  &__show-text {
+    color: #666;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-width: 100%;
+    max-height: 4.8rem;
+    margin: 0 auto;
+    font-size: 1.4rem;
+    line-height: 1.58;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+
+    @media (min-width: 1060px) {
+      display: block;
+      -webkit-line-clamp: 1;
+      height: auto;
+      white-space: nowrap;
+      font-size: 1.6rem;
+    }
+
+    .-print & {
+      text-overflow: normal;
+      max-height: 100%;
+      white-space: normal;
+    }
+  }
+
+  .p & {
+    vertical-align: -0.1rem;
+
+    @media (min-width: 1060px) {
+      vertical-align: 0;
+    }
+  }
+
+  .hgroup.-bottom > & {
+    margin-left: 0;
+    margin-bottom: -0.6rem;
+
+    @media (min-width: 1060px) {
+      margin-bottom: -0.4rem;
+    }
+  }
+
+  .hgroup.-h1 .h1 + & {
+    margin-left: 0;
+  }
+
+  &__tail-helper {
+    display: flex;
+    align-items: center;
+
+    .label {
+      margin-bottom: 0;
+    }
+
+    & + .helper {
+      margin-top: -0.3rem;
+    }
+
+    &.-baggage-delay {
+      margin-bottom: 0.5rem;
+
+      @media (min-width: 1060px) {
+        margin-bottom: 0.9rem;
+      }
+    }
+  }
+
+  &.-folders-heading {
+    position: absolute;
+    top: 1.6rem;
+    left: 14.2rem;
+
+    @media (min-width: 1060px) {
+      top: 2.1rem;
+      left: 17.6rem;
+    }
+  }
+}
