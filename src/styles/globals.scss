@@ -1,0 +1,70 @@
+@import './variables.scss'; // 전역 스타일 변수
+@import './mixins.scss';
+
+$IMG_PATH: '../../../../../images';
+$font-family-base: system-ui, -apple-system, sans-serif;
+$max-width: 100vw;
+
+// 전역 리셋 스타일
+:root {
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  &._mo-hidden {
+    @media (max-width: 1059px) {
+      display: none !important;
+    }
+  }
+
+  &._pc-hidden {
+    @media (min-width: 1060px) {
+      display: none !important;
+    }
+  }
+}
+
+html,
+body {
+  max-width: $max-width;
+  overflow-x: hidden;
+  font-family: $font-family-base;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// 컴포넌트에서 상속받을 수 있는 믹스인들
+@mixin global-reset {
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@mixin global-typography {
+  font-family: $font-family-base;
+}
+
+@mixin global-layout {
+  max-width: $max-width;
+  overflow-x: hidden;
+}
+
+@mixin global-links {
+  color: inherit;
+  text-decoration: none;
+}
+
+// 전역 스타일을 포함하는 믹스인
+@mixin include-globals {
+  @include global-reset;
+  @include global-typography;
+  @include global-layout;
+}

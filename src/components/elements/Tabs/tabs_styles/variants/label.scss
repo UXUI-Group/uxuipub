@@ -1,0 +1,98 @@
+.label {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: $color-text-label;
+  font-size: 1.4rem;
+  line-height: 1.58;
+
+  @media (min-width: 1060px) {
+    margin-bottom: 0.9rem;
+  }
+
+  &.-medium {
+    font-size: 1.4rem;
+
+    @media (min-width: 1060px) {
+      font-size: 1.6rem;
+    }
+  }
+  &.-large {
+    font-size: 1.6rem;
+
+    @media (min-width: 1060px) {
+      font-size: 1.8rem;
+    }
+
+    .bundle.-small & {
+      margin-bottom: 0;
+    }
+  }
+  &.-strong {
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+
+  &.-inline-block {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+
+  &.-group {
+    color: $color-text-body;
+
+    @media (min-width: 1060px) {
+      margin-top: 1.3rem;
+      font-size: 1.6rem;
+    }
+
+    & + .-roomtype {
+      margin-top: 0.4rem;
+      display: flex;
+      flex-wrap: wrap;
+
+      .selection {
+        margin-top: 0;
+        min-width: 50%;
+      }
+    }
+  }
+
+  &.-group-text {
+    @media (min-width: 1060px) {
+      font-size: 1.6rem;
+    }
+  }
+
+
+  &__block {
+    display: block;
+
+    &.-small {
+      color: $color-text-body-secondary;
+      font-size: 1.2rem;
+
+      @media (min-width: 1060px) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &__valigner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__has-popover {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: auto;
+
+    .helper {
+      width: 100%;
+    }
+
+    .popover__trigger {
+      margin-left: 0.4rem;
+    }
+  }
+}

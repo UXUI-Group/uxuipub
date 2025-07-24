@@ -1,0 +1,349 @@
+$IMG_PATH: '../../../../../images';
+//메인 플로팅 버튼
+.floating-button {
+  position: fixed;
+  bottom: 6rem;
+  right: 2rem;
+  display: block;
+  z-index: 2;
+  z-index: 9101;
+
+  @media (min-width: 1060px) {
+    bottom: $size-24;
+    right: $size-40;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 5rem;
+
+    width: 5rem;
+
+    @media (min-width: 1060px) {
+      width: 6.4rem;
+    }
+  }
+
+  &__expander {
+    position: relative;
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    border: 0;
+    background: none;
+    background-color: $color-fill-surface-inverse;
+    transition: all ease-in-out 0.3s;
+    z-index: 11;
+    cursor: pointer;
+
+    &[aria-expanded='true'] {
+      background-color: #ededed;
+      border: 1px solid #d9d9d9;
+
+      &:before {
+        background: url('#{$IMG_PATH}/icon--close.svg') no-repeat center center;
+        background-size: 3.6rem 3.6rem;
+      }
+    }
+
+    &:before {
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 3.2rem;
+      height: 3.2rem;
+      margin-top: -1.6rem;
+      margin-left: -1.6rem;
+      border-radius: 0.1rem;
+      //transition: all ease-in-out 0.3s;
+      content: '';
+      background: url('#{$IMG_PATH}/icon--plus-white.svg') no-repeat center center;
+      background-size: 3.2rem 3.2rem;
+
+      @media (min-width: 1060px) {
+        width: 4rem;
+        height: 4rem;
+        background-size: 4rem 4rem;
+        margin-top: -2rem;
+        margin-left: -2rem;
+      }
+    }
+
+    @media (min-width: 1060px) {
+      width: 6.4rem;
+      height: 6.4rem;
+    }
+  }
+
+  &__expand {
+    &[aria-hidden='false'],
+    &.-one {
+      .floating-button__item {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column-reverse;
+    position: static;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background-color: inherit;
+    width: 5rem;
+    margin: 0;
+    list-style: none;
+
+    @media (min-width: 1060px) {
+      width: 6.4rem;
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: -5rem;
+    width: 5rem;
+    height: 5rem;
+    transition: all 0.3s;
+
+    @media (min-width: 1060px) {
+      width: 6.4rem;
+      height: 6.4rem;
+      margin-bottom: -6.4rem;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: 5rem;
+    height: 100%;
+    border-radius: 100%;
+    border: 0;
+    background-color: $color-brand-darkblue-100;
+    color: $color-neutral-10;
+    font-size: $font-size-20;
+    border-radius: 2.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    // transition: all 0.3s;
+    overflow: hidden;
+
+    @media (min-width: 1060px) {
+      width: 6.4rem;
+      border-radius: 3.2rem;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    &:focus-visible {
+      outline: 0px;
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 0.2rem, rgb(5, 23, 102) 0px 0px 0px 0.3rem;
+
+      @media (min-width: 1060px) {
+        width: 13.6rem;
+
+        .floating-button__txt {
+          padding-left: 3.6rem;
+          font-size: 1.8rem;
+          line-height: 2.7rem !important;
+          margin: 0;
+          animation-name: opacity-ani;
+          animation-duration: 0.3s;
+        }
+      }
+    }
+
+    &:hover,
+    &.-expand {
+      @media (min-width: 1060px) {
+        width: 13.6rem;
+
+        .floating-button__txt {
+          padding-left: 3.6rem;
+          font-size: 1.8rem;
+          line-height: 2.7rem !important;
+          margin: 0;
+          animation-name: opacity-ani;
+          animation-duration: 0.3s;
+        }
+      }
+    }
+
+    // 다국어 및 유동적인 글자 입력을 위한 효과
+    @keyframes opacity-ani {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    &.-event {
+      background-image: url('#{$IMG_PATH}/icon--event-white.svg'), url('#{$IMG_PATH}/icon--event-txt-en.svg');
+      background-repeat: no-repeat;
+      background-position: center 0.8rem, center 3.2rem;
+      background-size: 2.4rem auto, 2.4rem auto;
+
+      @media (min-width: 1060px) {
+        background-image: url('#{$IMG_PATH}/icon--event-white.svg') !important;
+        background-position: center;
+        background-size: 3.2rem;
+        padding: 1.6rem;
+      }
+
+      &:focus-visible {
+        outline: 0px;
+        box-shadow: rgb(255, 255, 255) 0px 0px 0px 0.2rem, rgb(5, 23, 102) 0px 0px 0px 0.3rem;
+
+        @media (min-width: 1060px) {
+          background-position: 1.6rem center;
+          width: max-content;
+        }
+      }
+
+      &:hover,
+      &.-expand {
+        @media (min-width: 1060px) {
+          background-position: 1.6rem center;
+          width: max-content;
+        }
+      }
+    }
+
+    &.-chatbot {
+      background-image: url('#{$IMG_PATH}/icon--chatbot-white.svg'), url('#{$IMG_PATH}/icon--chatbot-txt-en.svg');
+      background-repeat: no-repeat;
+      background-position: center 0.8rem, center 3.4rem;
+      background-size: 2.4rem, 2.2rem 0.7rem;
+
+      @media (min-width: 1060px) {
+        background-image: url('#{$IMG_PATH}/icon--chatbot-white.svg') !important;
+        background-position: center;
+        background-size: 3.2rem;
+        padding: 1.6rem;
+      }
+
+      &:focus-visible {
+        outline: 0px;
+        box-shadow: rgb(255, 255, 255) 0px 0px 0px 0.2rem, rgb(5, 23, 102) 0px 0px 0px 0.3rem;
+
+        @media (min-width: 1060px) {
+          background-position: 1.6rem center;
+          width: max-content;
+        }
+      }
+
+      &:hover,
+      &.-expand {
+        @media (min-width: 1060px) {
+          background-position: 1.6rem center;
+          width: max-content;
+        }
+      }
+    }
+
+    &.-mode {
+      background-image: url('#{$IMG_PATH}/icon--moon.svg');
+      background-repeat: no-repeat;
+      background-position: center 0.8rem, center 3.4rem;
+      background-size: 2.4rem, 2.2rem 0.7rem;
+
+      @media (min-width: 1060px) {
+        background-image: url('#{$IMG_PATH}/icon--moon.svg') !important;
+        background-position: center;
+        background-size: 3.2rem;
+        padding: 1.6rem;
+      }
+
+      &:focus-visible {
+        outline: 0px;
+        box-shadow: rgb(255, 255, 255) 0px 0px 0px 0.2rem, rgb(5, 23, 102) 0px 0px 0px 0.3rem;
+
+        @media (min-width: 1060px) {
+          background-position: 1.6rem center;
+          width: max-content;
+        }
+      }
+
+      &.-light {
+        background-image: url('#{$IMG_PATH}/icon--sun.svg');
+        background-repeat: no-repeat;
+        background-position: center 0.8rem, center 3.4rem;
+        background-size: 2.4rem, 2.2rem 0.7rem;
+        @media (min-width: 1060px) {
+          background-image: url('#{$IMG_PATH}/icon--sun.svg') !important;
+          background-position: center;
+          background-size: 3.2rem;
+          padding: 1.6rem;
+        }
+      }
+
+      &:hover,
+      &.-expand {
+        @media (min-width: 1060px) {
+          background-position: 1.6rem center;
+          width: max-content;
+        }
+      }
+    }
+  }
+
+  &__txt {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 3.2rem;
+    line-height: 3.2rem;
+    padding-left: 5.8rem;
+    color: inherit;
+    font-size: $font-size-20;
+    // word-break: break-all;
+
+    @media (min-width: 1060px) {
+      padding-left: 6.4rem;
+    }
+  }
+
+  &__top {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 1rem;
+    border-radius: 100%;
+    border: 0;
+    background-color: $color-neutral-10;
+    background: $color-neutral-10 url('#{$IMG_PATH}/icon-main__top.svg') no-repeat center center;
+    background-size: 24px 24px;
+    //border: solid 1px @line1;
+
+    @media (min-width: 1060px) {
+      background-size: 32px 32px;
+      width: 6.4rem;
+      height: 6.4rem;
+    }
+
+    &:only-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__tit {
+    padding: 3.2rem 0.6rem 0.6rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}

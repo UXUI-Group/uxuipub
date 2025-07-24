@@ -1,0 +1,15 @@
+@mixin ux-focus($color: $color-border-primary) {
+  &:hover,
+  &:focus {
+    outline: 0;
+    box-shadow: inset 0 0 0 1px $color;
+  }
+}
+
+@mixin ux-outfocus($color: $color-border-inverse) {
+  &:hover,
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px $color, 0 0 0 3px $color-border-primary;
+  }
+}
