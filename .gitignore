@@ -10,6 +10,10 @@
 !.yarn/releases
 !.yarn/versions
 
+# lock files (pnpm을 주 패키지 매니저로 사용)
+yarn.lock
+package-lock.json
+
 # testing
 /coverage
 
