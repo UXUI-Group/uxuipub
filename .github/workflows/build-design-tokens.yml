@@ -1,0 +1,75 @@
+name: 🎨 Build Design Tokens
+
+on:
+  push:
+    branches:
+      - design-tokens
+    paths:
+      - 'tokens.json'
+  workflow_dispatch: # 수동 실행 가능
+
+jobs:
+  build-tokens:
+    name: Generate SCSS tokens
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 'latest'
+
+      - name: 📥 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🎨 Build design tokens
+        run: pnpm run build:tokens
+
+      - name: 🔍 Check for changes
+        id: verify-changed-files
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "✅ Changes detected in _tokens.scss"
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No changes detected"
+          fi
+
+      - name: 📝 Commit and push changes
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add src/styles/_tokens.scss
+          git commit -m "🎨 Auto-update design tokens
+
+          - Generated from tokens.json
+          - Updated at $(date +'%Y-%m-%d %H:%M:%S')
+
+          [skip ci]"
+          git push
+
+      - name: ✅ Success notification
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          echo "🎉 Design tokens have been successfully updated!"
+          echo "📁 File: src/styles/_tokens.scss"
+          echo "🔗 Commit: https://github.com/${{ github.repository }}/commit/$(git rev-parse HEAD)"
+
+      - name: ℹ️ No changes notification
+        if: steps.verify-changed-files.outputs.changed == 'false'
+        run: |
+          echo "ℹ️ No changes were needed for _tokens.scss"
+          echo "📄 tokens.json might not have been modified or changes didn't affect the output"
