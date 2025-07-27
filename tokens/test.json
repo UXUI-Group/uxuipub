@@ -1,0 +1,16 @@
+{
+  "global": {
+    "red": {
+      "value": "#f00",
+      "type": "color"
+    },
+    "blue": {
+      "value": "#00f",
+      "type": "color"
+    }
+  },
+  "$themes": [],
+  "$metadata": {
+    "tokenSetOrder": ["global"]
+  }
+}
