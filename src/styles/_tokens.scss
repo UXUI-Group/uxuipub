@@ -1,7 +1,7 @@
 // ===================================================================
 // 디자인 토큰 (Design Tokens)
 // tokens.json에서 자동 생성됨
-// 생성 시각: 2025. 7. 27. 오전 10:43:13
+// 생성 시각: 2025. 8. 6. 오전 12:50:08
 // ===================================================================
 
 :root {
@@ -46,24 +46,24 @@
 
   // Spacing Tokens
   --spacing-0: 0rem;
-  --spacing-2: 0.2rem;
-  --spacing-4: 0.4rem;
-  --spacing-8: 0.8rem;
-  --spacing-12: 1.2rem;
-  --spacing-16: 1.6rem;
-  --spacing-20: 2rem;
-  --spacing-24: 2.4rem;
-  --spacing-32: 3.2rem;
-  --spacing-40: 4rem;
-  --spacing-56: 5.6rem;
-  --spacing-64: 6.4rem;
-  --spacing-112: 11.2rem;
+  --spacing-2: 0.125rem;
+  --spacing-4: 0.25rem;
+  --spacing-8: 0.5rem;
+  --spacing-12: 0.75rem;
+  --spacing-16: 1rem;
+  --spacing-20: 1.25rem;
+  --spacing-24: 1.5rem;
+  --spacing-32: 2rem;
+  --spacing-40: 2.5rem;
+  --spacing-56: 3.5rem;
+  --spacing-64: 4rem;
+  --spacing-112: 7rem;
 
   // Radius Tokens
   --radius-0: 0rem;
-  --radius-12: 1.2rem;
-  --radius-20: 2rem;
-  --radius-round: 99999.9rem;
+  --radius-12: 0.75rem;
+  --radius-20: 1.25rem;
+  --radius-round: 62499.938rem;
 
   // Switch Tokens
   --switch-light-only: true;
