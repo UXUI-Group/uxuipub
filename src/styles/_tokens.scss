@@ -1,48 +1,13 @@
 // ===================================================================
 // 디자인 토큰 (Design Tokens)
 // tokens.json에서 자동 생성됨
-// 생성 시각: 2025. 8. 6. 오전 12:50:08
+// 생성 시각: 2025. 8. 6. 오전 1:03:50
 // ===================================================================
 
 :root {
   // ===================================================================
   // Light Mode Tokens (기본값)
   // ===================================================================
-
-  // Text Colors
-  --color-text-primary: #051766;
-  --color-text-base: #333333;
-  --color-text-inverse: #ffffff;
-  --color-text-second: #5e5e5e;
-  --color-text-primary-fixed: #051766;
-  --color-text-inverse-fixed: #ffffff;
-
-  // Background Colors
-  --color-background-primary-darkblue: #051766;
-  --color-background-primary-lightblue: #57bbeb;
-  --color-background-inverse: #ffffff;
-  --color-background-base-gray: #5e5e5e;
-  --color-background-primary-lightblue-alpha: #57bbeb4d;
-  --color-background-dark-alpha: #25252580;
-  --color-background-base: #ededed;
-  --color-background-primary-lightblue20: #bce4f7;
-  --color-background-primary-lightblue10: #eef8fd;
-  --color-background-inverse-toneup: #ffffff;
-  --color-background-primary-darkblue-alpha: #0517664d;
-
-  // Border Colors
-  --color-border-primary-darkble: #051766;
-  --color-border-primary-lightblue: #57bbeb;
-  --color-border-inverse: #ffffff;
-  --color-border-base: #d9d9d9;
-
-  // Icon Colors
-  --color-icon-primary: #051766;
-  --color-icon-base: #333333;
-  --color-icon-inverse: #ffffff;
-  --color-icon-second: #5e5e5e;
-  --color-icon-inverse-grey: #ffffff;
-  --color-icon-primary-fixed: #051766;
 
   // Spacing Tokens
   --spacing-0: 0rem;
@@ -75,41 +40,6 @@
 // Dark Mode Tokens
 // ===================================================================
 [data-theme="dark"] {
-  // Text Colors - Dark Mode
-  --color-text-primary: #ffffff;
-  --color-text-base: #ffffff99;
-  --color-text-inverse: #051766;
-  --color-text-second: #ffffff99;
-  --color-text-primary-fixed: #051766;
-  --color-text-inverse-fixed: #ffffff;
-
-  // Background Colors - Dark Mode
-  --color-background-primary-darkblue: #ddf1fb;
-  --color-background-primary-lightblue: #57bbeb;
-  --color-background-inverse: #1e1e20;
-  --color-background-base-gray: #ffffff;
-  --color-background-primary-lightblue-alpha: #28282be6;
-  --color-background-dark-alpha: #25252599;
-  --color-background-base: #ffffff33;
-  --color-background-primary-lightblue20: #bce4f7;
-  --color-background-primary-lightblue10: #bce4f7;
-  --color-background-inverse-toneup: #313233;
-  --color-background-primary-darkblue-alpha: #ffffffe6;
-
-  // Border Colors - Dark Mode
-  --color-border-primary-darkble: #ffffff;
-  --color-border-primary-lightblue: #ffffff;
-  --color-border-inverse: #ffffff;
-  --color-border-base: #ffffff4d;
-
-  // Icon Colors - Dark Mode
-  --color-icon-primary: #ffffff;
-  --color-icon-base: #ffffff;
-  --color-icon-inverse: #051766;
-  --color-icon-second: #ffffffde;
-  --color-icon-inverse-grey: #333333;
-  --color-icon-primary-fixed: #051766;
-
   // Switch Tokens - Dark Mode
   --switch-light-only: false;
   --switch-dark-only: true;
