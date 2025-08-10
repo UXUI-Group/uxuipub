@@ -1,15 +1,11 @@
-@use '../../../../styles/globals.scss' as *;
-
 .navigation {
-  @include global-typography;
-
   &__list {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
     gap: 2rem;
-
+    
     @media (max-width: 768px) {
       flex-direction: column;
       gap: 1rem;
@@ -21,19 +17,19 @@
   }
 
   &__link {
-    @include global-links;
     display: block;
     padding: 0.75rem 1.5rem;
+    text-decoration: none;
     color: #666;
     font-weight: 500;
     border-radius: 8px;
     transition: all 0.2s ease;
-
+    
     &:hover {
       color: #007bff;
       background-color: #f8f9fa;
     }
-
+    
     &--active {
       color: #007bff;
       background-color: #e3f2fd;

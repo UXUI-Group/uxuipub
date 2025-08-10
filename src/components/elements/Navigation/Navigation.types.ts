@@ -1,9 +1,9 @@
 export interface NavigationProps {
-  currentPath?: string;
+  currentPath?: string
 }
 
 export interface NavItem {
-  label: string;
-  href: string;
-  isActive?: boolean;
+  label: string
+  href: string
+  isActive?: boolean
 }
