@@ -8,12 +8,24 @@ const tokensPath = path.join(__dirname, '../tokens.json');
 const outputPath = path.join(__dirname, '../src/styles/_tokens.scss');
 
 /**
+ * 토큰 이름에서 제어 문자를 제거하고 정리
+ * 예: "\bDark-alpha" -> "Dark-alpha"
+ * 예: "\tBase" -> "Base"
+ */
+function cleanTokenName(name) {
+  return name
+    .replace(/[\x00-\x1F\x7F]/g, '') // 모든 제어 문자 제거 (백스페이스, 탭, 개행 등)
+    .replace(/^\s+|\s+$/g, '') // 앞뒤 공백 제거
+    .trim();
+}
+
+/**
  * 토큰 이름을 CSS 변수명으로 변환
  * 예: "Primary-darkblue" -> "primary-darkblue"
  * 예: "Primary_fixed" -> "primary-fixed"
  */
 function formatTokenName(name) {
-  return name
+  return cleanTokenName(name) // 먼저 제어 문자 정리
     .replace(/_/g, '-') // 언더스코어를 하이픈으로 변환
     .replace(/([a-z])([A-Z])/g, '$1-$2') // 카멜케이스를 케밥케이스로 변환
     .toLowerCase()
@@ -26,7 +38,9 @@ function formatTokenName(name) {
  * 색상 카테고리명을 CSS 변수 접두사로 변환
  */
 function formatCategoryName(category) {
-  return category.toLowerCase().replace(/\s+/g, '-');
+  return cleanTokenName(category) // 제어 문자 정리
+    .toLowerCase()
+    .replace(/\s+/g, '-');
 }
 
 /**
@@ -52,8 +66,8 @@ function generateLightModeTokens(lightTokens) {
   scss += '  // ===================================================================\n\n';
 
   // Color 토큰 처리
-  if (lightTokens.Color && lightTokens.Color.Color) {
-    const colorCategories = lightTokens.Color.Color;
+  if (lightTokens.Color) {
+    const colorCategories = lightTokens.Color;
 
     Object.entries(colorCategories).forEach(([category, tokens]) => {
       scss += `  // ${category.charAt(0).toUpperCase() + category.slice(1)} Colors\n`;
@@ -111,8 +125,8 @@ function generateDarkModeTokens(darkTokens) {
   scss += '[data-theme="dark"] {\n';
 
   // Color 토큰 처리
-  if (darkTokens.Color && darkTokens.Color.Color) {
-    const colorCategories = darkTokens.Color.Color;
+  if (darkTokens.Color) {
+    const colorCategories = darkTokens.Color;
 
     Object.entries(colorCategories).forEach(([category, tokens]) => {
       scss += `  // ${category.charAt(0).toUpperCase() + category.slice(1)} Colors - Dark Mode\n`;
