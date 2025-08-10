@@ -1,9 +1,0 @@
-<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" fill-rule="evenodd">
-        <path d="M0 0h24v24H0z"/>
-        <path d="M12 3.75c2.274 0 4.337.926 5.83 2.42A8.224 8.224 0 0 1 20.25 12a8.224 8.224 0 0 1-2.42 5.83A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.83-2.42A8.224 8.224 0 0 1 3.75 12c0-2.275.926-4.337 2.42-5.83A8.224 8.224 0 0 1 12 3.75z" stroke="#051766" stroke-width="1.5"/>
-        <text font-family="OriyaSangamMN-Bold, Oriya Sangam MN" font-size="12" font-weight="bold" fill="#051766">
-                                <tspan x="11" y="17">!</tspan>
-                            </text>
-    </g>
-</svg>
