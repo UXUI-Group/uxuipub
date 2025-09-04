@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { TabsProps, TabItem } from './tabs.type';
 import './tabs_styles/tabs.scss';
 
@@ -16,7 +16,7 @@ interface PopoverState {
 }
 
 // 팝오버 훅
-const usePopover = (type: PopoverType) => {
+const usePopover = () => {
   const [state, setState] = useState<PopoverState>({
     isOpen: false,
     position: { left: 0, top: 0 },
@@ -27,7 +27,7 @@ const usePopover = (type: PopoverType) => {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const calculatePosition = () => {
+  const calculatePosition = useCallback(() => {
     if (triggerRef.current && popoverRef.current) {
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const popoverRect = popoverRef.current.getBoundingClientRect();
@@ -41,7 +41,7 @@ const usePopover = (type: PopoverType) => {
         edgeLeft: `${triggerCenter - left}px`,
       }));
     }
-  };
+  }, []);
 
   const toggle = () => {
     if (!state.isOpen) {
@@ -63,7 +63,7 @@ const usePopover = (type: PopoverType) => {
     if (state.isOpen) {
       calculatePosition();
     }
-  }, [state.isOpen]);
+  }, [state.isOpen, calculatePosition]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -74,7 +74,7 @@ const usePopover = (type: PopoverType) => {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [state.isOpen]);
+  }, [state.isOpen, calculatePosition]);
 
   return {
     state,
@@ -95,33 +95,52 @@ const useIntegratedPopover = () => {
     [key in PopoverType]?: string;
   }>({});
 
-  const triggerRefs = {
-    multi: useRef<HTMLButtonElement>(null),
-    'multi-type': useRef<HTMLButtonElement>(null),
-    'multi-form': useRef<HTMLButtonElement>(null),
-    skyteam: useRef<HTMLButtonElement>(null),
-  };
+  const multiTriggerRef = useRef<HTMLButtonElement>(null);
+  const multiTypeTriggerRef = useRef<HTMLButtonElement>(null);
+  const multiFormTriggerRef = useRef<HTMLButtonElement>(null);
+  const skyteamTriggerRef = useRef<HTMLButtonElement>(null);
 
-  const popoverRefs = {
-    multi: useRef<HTMLDivElement>(null),
-    'multi-type': useRef<HTMLDivElement>(null),
-    'multi-form': useRef<HTMLDivElement>(null),
-    skyteam: useRef<HTMLDivElement>(null),
-  };
+  const multiPopoverRef = useRef<HTMLDivElement>(null);
+  const multiTypePopoverRef = useRef<HTMLDivElement>(null);
+  const multiFormPopoverRef = useRef<HTMLDivElement>(null);
+  const skyteamPopoverRef = useRef<HTMLDivElement>(null);
 
-  const calculatePosition = (type: PopoverType) => {
-    const triggerRef = triggerRefs[type];
-    const popoverRef = popoverRefs[type];
-    if (triggerRef.current && popoverRef.current) {
-      const triggerRect = triggerRef.current.getBoundingClientRect();
-      const popoverRect = popoverRef.current.getBoundingClientRect();
-      const triggerCenter = triggerRect.left + triggerRect.width / 2;
-      const left = triggerCenter - popoverRect.width / 2;
-      const top = triggerRect.bottom + 8;
-      setPopoverPositions(prev => ({ ...prev, [type]: { left, top } }));
-      setPopoverEdgeLefts(prev => ({ ...prev, [type]: `${triggerCenter - left}px` }));
-    }
-  };
+  const triggerRefs = useMemo(
+    () => ({
+      multi: multiTriggerRef,
+      'multi-type': multiTypeTriggerRef,
+      'multi-form': multiFormTriggerRef,
+      skyteam: skyteamTriggerRef,
+    }),
+    []
+  );
+
+  const popoverRefs = useMemo(
+    () => ({
+      multi: multiPopoverRef,
+      'multi-type': multiTypePopoverRef,
+      'multi-form': multiFormPopoverRef,
+      skyteam: skyteamPopoverRef,
+    }),
+    []
+  );
+
+  const calculatePosition = useCallback(
+    (type: PopoverType) => {
+      const triggerRef = triggerRefs[type];
+      const popoverRef = popoverRefs[type];
+      if (triggerRef.current && popoverRef.current) {
+        const triggerRect = triggerRef.current.getBoundingClientRect();
+        const popoverRect = popoverRef.current.getBoundingClientRect();
+        const triggerCenter = triggerRect.left + triggerRect.width / 2;
+        const left = triggerCenter - popoverRect.width / 2;
+        const top = triggerRect.bottom + 8;
+        setPopoverPositions(prev => ({ ...prev, [type]: { left, top } }));
+        setPopoverEdgeLefts(prev => ({ ...prev, [type]: `${triggerCenter - left}px` }));
+      }
+    },
+    [triggerRefs, popoverRefs]
+  );
 
   const toggle = (type: PopoverType) => {
     if (openPopover === type) {
@@ -137,7 +156,7 @@ const useIntegratedPopover = () => {
     if (openPopover) {
       calculatePosition(openPopover);
     }
-  }, [openPopover]);
+  }, [openPopover, calculatePosition]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -148,7 +167,7 @@ const useIntegratedPopover = () => {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [openPopover]);
+  }, [openPopover, calculatePosition]);
 
   return {
     openPopover,
@@ -829,45 +848,6 @@ const FlightStatusTab: React.FC<{
   </div>
 );
 
-// 팝오버 컴포넌트
-const Popover: React.FC<{
-  id: string;
-  isOpen: boolean;
-  position: { left: number; top: number };
-  edgeLeft: string;
-  isReady?: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-}> = ({ id, isOpen, position, edgeLeft, isReady = true, onClose, children }) => (
-  <div
-    id={id}
-    className={`popover -down ${isOpen ? '-active' : ''}`}
-    aria-hidden={!isOpen}
-    style={{
-      position: 'fixed',
-      left: `${position.left}px`,
-      top: `${position.top}px`,
-      zIndex: 1000,
-      visibility: isReady ? 'visible' : 'hidden',
-    }}
-  >
-    <span
-      className="popover__edge"
-      aria-hidden="true"
-      style={{
-        position: 'absolute',
-        top: '-8px',
-        left: edgeLeft,
-        transform: 'translateX(-50%)',
-      }}
-    ></span>
-    {children}
-    <button type="button" className="popover__close" onClick={onClose}>
-      닫기
-    </button>
-  </div>
-);
-
 export const Tabs: React.FC<TabsProps> = ({
   variant = 'core',
   size = 'medium',
@@ -885,7 +865,7 @@ export const Tabs: React.FC<TabsProps> = ({
 
   // 팝오버 관리
   const integratedPopover = useIntegratedPopover();
-  const multiFormPopover = usePopover('multi-form');
+  const multiFormPopover = usePopover();
 
   // 이벤트 핸들러들
   const handleTabClick = (index: number) => {

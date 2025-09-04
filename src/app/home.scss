@@ -1,5 +1,5 @@
 @import '../styles/variables.scss';
-
+$IMG_PATH: '../images';
 .home-page {
   min-height: 100vh;
   display: flex;
@@ -12,10 +12,17 @@
 
 // Hero Section
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 120px 0;
-  text-align: center;
+  padding: 80px 0;
+  background: url('#{$IMG_PATH}/main-bg-img-motif-ta.jpg') no-repeat center top;
+
+  @media (min-width: 768px) {
+    background: url('#{$IMG_PATH}/main-bg-img-motif-ta.jpg') no-repeat center top;
+  }
+
+  @media (min-width: 1060px) {
+    background: url('#{$IMG_PATH}/main-bg-img-motif-pc.jpg') no-repeat center top;
+  }
 
   &__container {
     max-width: 1280px;

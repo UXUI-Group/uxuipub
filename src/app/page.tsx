@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Header } from '@/components/layouts/Header';
 import { Footer } from '@/components/layouts/Footer';
 import { Card } from '@/components/blocks/Card';
@@ -8,7 +9,6 @@ import { Button } from '@/components/elements/Button';
 import { Tabs } from '@/components/elements/Tabs';
 import { config } from '@/config';
 import './home.scss';
-import Quicklink from '@/components/elements/Quicklink/Quicklink';
 import QuicklinkGroup from '@/components/elements/Quicklink/QuicklinkGroup';
 import krcardImage from '@/images/tsconfig.png';
 import giftcardImage from '@/images/gift-card.png';
@@ -21,41 +21,41 @@ import { FloatingBanner } from '@/components/elements/Floating-banner';
 
 const KrcardIcon = () => (
   <span>
-    <img src={krcardImage.src} alt="" />
+    <Image src={krcardImage} alt="대한항공카드" width={24} height={24} />
   </span>
 );
 const GiftcardIcon = () => (
   <span>
-    <img src={giftcardImage.src} alt="" />
+    <Image src={giftcardImage} alt="기프트카드" width={24} height={24} />
   </span>
 );
 const HotelImage = () => (
   <span>
-    <img src={hotelImage.src} alt="" />
+    <Image src={hotelImage} alt="호텔" width={24} height={24} />
   </span>
 );
 
 const RentacarImage = () => (
   <span>
-    <img src={rentacarImage.src} alt="" />
+    <Image src={rentacarImage} alt="렌터카" width={24} height={24} />
   </span>
 );
 
 const DutyfreeImage = () => (
   <span>
-    <img src={dutyfreeImage.src} alt="" />
+    <Image src={dutyfreeImage} alt="기내 면세점" width={24} height={24} />
   </span>
 );
 
 const InsuranceImage = () => (
   <span>
-    <img src={insuranceImage.src} alt="" />
+    <Image src={insuranceImage} alt="여행자 보험" width={24} height={24} />
   </span>
 );
 
 const TravelImage = () => (
   <span>
-    <img src={travelImage.src} alt="" />
+    <Image src={travelImage} alt="여행 상품" width={24} height={24} />
   </span>
 );
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Quicklink, { QuicklinkProps } from './Quicklink';
+import Quicklink from './Quicklink';
 import './quicklink_styles/quicklink.scss';
 
 export interface QuicklinkSubItem {
@@ -61,17 +61,19 @@ const QuicklinkGroup: React.FC<QuicklinkGroupProps> = ({
     };
   }, []);
 
-  // 서브메뉴가 열릴 때 quicklinks 섹션의 높이 조정 (PC에서만)
+  // quicklink-sublinks가 실제로 열렸을 때만 quicklinks 섹션의 높이 조정 (PC에서만)
   useEffect(() => {
     const quicklinksSection = document.querySelector('.quicklinks') as HTMLElement;
-    if (quicklinksSection && !isMobile) {
-      if (openSubmenu) {
-        quicklinksSection.style.paddingBottom = '10rem';
-      } else {
-        quicklinksSection.style.paddingBottom = '5rem';
-      }
+    // 열려있는 서브메뉴가 실제로 존재하는지 확인
+    const openedLink = links.find(link => link.id === openSubmenu && link.sublinks && link.sublinks.length > 0);
+    if (quicklinksSection && !isMobile && openedLink) {
+      quicklinksSection.style.paddingBottom = '10rem';
+    } else if (quicklinksSection && !isMobile) {
+      quicklinksSection.style.paddingBottom = '5rem';
+    } else if (quicklinksSection && isMobile) {
+      quicklinksSection.style.paddingBottom = '';
     }
-  }, [openSubmenu, isMobile]);
+  }, [openSubmenu, isMobile, links]);
 
   const handleLinkClick = (link: QuicklinkItem, event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
     if (onLinkClick) {
@@ -173,7 +175,7 @@ const QuicklinkGroup: React.FC<QuicklinkGroupProps> = ({
             target={link.target}
             rel={link.rel}
             className={`${link.className || ''} ${link.sublinks ? 'quicklink--has-sublinks' : ''}`}
-            onClick={link.sublinks ? event => handleButtonClick(link.id) : event => handleLinkClick(link, event)}
+            onClick={link.sublinks ? () => handleButtonClick(link.id) : event => handleLinkClick(link, event)}
             hasSublinks={!!link.sublinks}
             aria-controls={link.sublinks ? `sublinks-${link.id}` : undefined}
             aria-expanded={link.sublinks ? openSubmenu === link.id : undefined}

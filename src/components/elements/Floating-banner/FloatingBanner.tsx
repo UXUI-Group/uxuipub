@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Floating-banner_styles/FloatingBanner.scss';
 
-export interface FloatingBannerProps {
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-  className?: string;
-}
+export type FloatingBannerProps = Record<never, never>;
 
-export const FloatingBanner = ({ children, style, className }: FloatingBannerProps) => {
-  const [visible, setVisible] = useState(true);
+export const FloatingBanner = ({}: FloatingBannerProps) => {
+  const [visible] = useState(true);
   const [expanded, setExpanded] = useState(true);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false); // 항상 라이트모드로 시작
+
+  // body class 토글
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('-dark');
+      document.body.classList.remove('-light');
+    } else {
+      document.body.classList.add('-light');
+      document.body.classList.remove('-dark');
+    }
+  }, [isDarkMode]);
 
   // 1초 동안 스크롤 상단으로 이동하는 애니메이션 함수
   const scrollToTopAnimated = () => {
@@ -30,22 +37,14 @@ export const FloatingBanner = ({ children, style, className }: FloatingBannerPro
     requestAnimationFrame(animateScroll);
   };
 
-  // 스크롤 상단 이동 함수
-  const handleScrollTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if ((window.scrollY || window.pageYOffset) === 0) return;
-    scrollToTopAnimated();
-  };
-
-  // 확장/축소 토글 함수
-  const handleExpanderClick = () => {
-    setExpanded(prev => !prev);
-  };
-
-  // 모드 토글 함수
+  // 모드 토글 함수 (dark <-> light)
   const handleModeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    setIsDarkMode(prev => !prev);
+    setIsDarkMode(prev => {
+      const next = !prev;
+      localStorage.setItem('theme', next ? 'dark' : 'light');
+      return next;
+    });
   };
 
   // 챗봇/이벤트 링크 클릭 void 처리
@@ -64,7 +63,7 @@ export const FloatingBanner = ({ children, style, className }: FloatingBannerPro
           data-click-area="Main-Floating banner"
           data-click-name="Close"
           aria-expanded={expanded}
-          onClick={handleExpanderClick}
+          onClick={() => setExpanded(prev => !prev)}
         >
           <span className="_hidden">모드 변경, 이벤트, 챗봇 링크 더보기</span>
         </button>
@@ -99,7 +98,7 @@ export const FloatingBanner = ({ children, style, className }: FloatingBannerPro
             <li className="floating-button__item">
               <a
                 href="#"
-                className={`floating-button__link -mode -outter ${!isDarkMode ? ' -light' : ''}`}
+                className={`floating-button__link -mode -outter ${isDarkMode ? '-light' : '-dark'}`}
                 data-click-area="Main-Floating banner"
                 data-click-name="Mode"
                 data-ga4-click-area="Floating Button"
@@ -109,8 +108,8 @@ export const FloatingBanner = ({ children, style, className }: FloatingBannerPro
                   handleModeClick(e);
                 }}
               >
-                <p className="floating-button__txt">{isDarkMode ? 'Dark' : 'Light'}</p>
-                <span className="_hidden">{isDarkMode ? 'Dark 모드 변경' : 'Light 모드 변경'}</span>
+                <p className="floating-button__txt">{isDarkMode ? 'Light' : 'Dark'}</p>
+                <span className="_hidden">{isDarkMode ? 'Light 모드 변경' : 'Dark 모드 변경'}</span>
               </a>
             </li>
           </ul>
@@ -123,7 +122,7 @@ export const FloatingBanner = ({ children, style, className }: FloatingBannerPro
           style={{ display: 'block' }}
           onClick={e => {
             handleVoidClick(e);
-            handleScrollTop(e);
+            scrollToTopAnimated();
           }}
         >
           <span className="_hidden">콘텐츠 처음으로 바로 가기</span>

@@ -7,7 +7,10 @@
     list-style: none;
     border-radius: 8px 8px 0 0;
     overflow: hidden;
-    gap: 1px;
+
+    @media (min-width: 1060px) {
+      gap: 1px;
+    }
   }
 
   .booking-widget__itm {
@@ -16,9 +19,12 @@
 
     &.-active {
       .booking-widget__button {
-        border-radius: 16px 16px 0px 0px;
         background: #fff;
         color: $color-text-body;
+
+        @media (min-width: 1060px) {
+          border-radius: 16px 16px 0px 0px;
+        }
       }
       .booking-widget__txt {
         font-weight: 700;
@@ -36,7 +42,6 @@
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: #25252580;
-    border-radius: 16px 16px 0px 0px;
     position: relative;
     display: flex;
     align-items: center;
@@ -44,6 +49,9 @@
     min-height: 56px;
     color: #fff;
 
+    @media (min-width: 1060px) {
+      border-radius: 16px 16px 0px 0px;
+    }
     &:hover {
       text-decoration: underline;
       font-weight: 700;
@@ -60,9 +68,12 @@
   }
 
   .booking-widget__txt {
-    font-size: $font-body-md;
+    font-size: $font-body-sm;
     font-weight: 400;
     letter-spacing: 0.025em;
+    @media (min-width: 1060px) {
+      font-size: $font-body-md;
+    }
   }
 
   .booking-widget__panel {
