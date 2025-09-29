@@ -10,8 +10,12 @@
 
 // Hero Section
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(
+    135deg,
+    var(--color-background-primary-darkblue) 0%,
+    var(--color-background-primary-lightblue) 100%
+  );
+  color: var(--color-text-inverse-fixed);
   padding: 120px 0;
   text-align: center;
 
@@ -54,7 +58,7 @@
 // Featured Projects Section
 .featured {
   padding: 100px 0;
-  background-color: #f8f9fa;
+  background-color: var(--color-background-base);
 
   &__container {
     max-width: 1200px;
@@ -67,13 +71,13 @@
     font-weight: 700;
     text-align: center;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--color-text-base);
   }
 
   &__description {
     font-size: 1.1rem;
     text-align: center;
-    color: #666;
+    color: var(--color-text-second);
     margin-bottom: 4rem;
     max-width: 600px;
     margin-left: auto;
@@ -91,8 +95,8 @@
 // CTA Section
 .cta {
   padding: 80px 0;
-  background-color: #343a40;
-  color: white;
+  background-color: var(--color-background-inverse-toneup);
+  color: var(--color-text-base);
   text-align: center;
 
   &__container {

@@ -1,0 +1,152 @@
+// ===================================================================
+// 디자인 토큰 (Design Tokens)
+// tokens.json에서 자동 생성됨
+// 생성 시각: 2025. 8. 10. 오후 11:43:41
+// ===================================================================
+
+:root {
+  // ===================================================================
+  // Light Mode Tokens (기본값)
+  // ===================================================================
+
+  // Text Colors
+  --color-text-primary: #051766;
+  --color-text-base: #333333;
+  --color-text-inverse: #ffffff;
+  --color-text-second: #5e5e5e;
+  --color-text-primary-fixed: #051766;
+  --color-text-inverse-fixed: #ffffff;
+
+  // Background Colors
+  --color-background-primary-darkblue: #051766;
+  --color-background-primary-lightblue: #57bbeb;
+  --color-background-inverse: #ffffff;
+  --color-background-base-gray: #5e5e5e;
+  --color-background-primary-lightblue-alpha: #57bbeb4d;
+  --color-background-dark-alpha: #25252580;
+  --color-background-base: #ededed;
+  --color-background-primary-lightblue20: #bce4f7;
+  --color-background-primary-lightblue10: #eef8fd;
+  --color-background-inverse-toneup: #ffffff;
+  --color-background-primary-darkblue-alpha: #0517664d;
+  --color-background-dark-alpha: #25252580;
+
+  // Border Colors
+  --color-border-primary-darkble: #051766;
+  --color-border-primary-lightblue: #57bbeb;
+  --color-border-inverse: #ffffff;
+  --color-border-base: #d9d9d9;
+  --color-border-base: #d9d9d9;
+
+  // Icon Colors
+  --color-icon-primary: #051766;
+  --color-icon-base: #333333;
+  --color-icon-inverse: #ffffff;
+  --color-icon-second: #5e5e5e;
+  --color-icon-inverse-grey: #ffffff;
+  --color-icon-primary-fixed: #051766;
+
+  // Spacing Tokens
+  --spacing-0: 0rem;
+  --spacing-2: 0.2rem;
+  --spacing-4: 0.4rem;
+  --spacing-8: 0.8rem;
+  --spacing-12: 1.2rem;
+  --spacing-16: 1.6rem;
+  --spacing-20: 2rem;
+  --spacing-24: 2.4rem;
+  --spacing-32: 3.2rem;
+  --spacing-40: 4rem;
+  --spacing-56: 5.6rem;
+  --spacing-64: 6.4rem;
+  --spacing-112: 11.2rem;
+
+  // Radius Tokens
+  --radius-0: 0rem;
+  --radius-12: 1.2rem;
+  --radius-20: 2rem;
+  --radius-round: 99999.9rem;
+
+  // Switch Tokens
+  --switch-light-only: true;
+  --switch-dark-only: false;
+
+}
+
+// ===================================================================
+// Dark Mode Tokens
+// ===================================================================
+[data-theme="dark"] {
+  // Text Colors - Dark Mode
+  --color-text-primary: #ffffff;
+  --color-text-base: #ffffff99;
+  --color-text-inverse: #051766;
+  --color-text-second: #ffffff99;
+  --color-text-primary-fixed: #051766;
+  --color-text-inverse-fixed: #ffffff;
+
+  // Background Colors - Dark Mode
+  --color-background-primary-darkblue: #ddf1fb;
+  --color-background-primary-lightblue: #57bbeb;
+  --color-background-inverse: #1e1e20;
+  --color-background-base-gray: #ffffff;
+  --color-background-primary-lightblue-alpha: #28282be6;
+  --color-background-dark-alpha: #25252599;
+  --color-background-base: #ffffff33;
+  --color-background-primary-lightblue20: #bce4f7;
+  --color-background-primary-lightblue10: #bce4f7;
+  --color-background-inverse-toneup: #313233;
+  --color-background-primary-darkblue-alpha: #ffffffe6;
+  --color-background-dark-alpha: #25252599;
+
+  // Border Colors - Dark Mode
+  --color-border-primary-darkble: #ffffff;
+  --color-border-primary-lightblue: #ffffff;
+  --color-border-inverse: #ffffff;
+  --color-border-base: #ffffff4d;
+  --color-border-base: #ffffff4d;
+
+  // Icon Colors - Dark Mode
+  --color-icon-primary: #ffffff;
+  --color-icon-base: #ffffff;
+  --color-icon-inverse: #051766;
+  --color-icon-second: #ffffffde;
+  --color-icon-inverse-grey: #333333;
+  --color-icon-primary-fixed: #051766;
+
+  // Switch Tokens - Dark Mode
+  --switch-light-only: false;
+  --switch-dark-only: true;
+
+}
+
+// ===================================================================
+// 사용 예시 (Usage Examples)
+// ===================================================================
+
+/*
+// CSS에서 사용법:
+.button {
+  background-color: var(--color-background-primary-darkblue);
+  color: var(--color-text-inverse);
+  border: 1px solid var(--color-border-primary-darkblue);
+  border-radius: var(--radius-12);
+  padding: var(--spacing-12) var(--spacing-24);
+}
+
+// SCSS에서 사용법:
+.card {
+  background: var(--color-background-inverse);
+  border: 1px solid var(--color-border-base);
+  border-radius: var(--radius-20);
+  padding: var(--spacing-16);
+  
+  &:hover {
+    background: var(--color-background-base);
+  }
+}
+
+// 다크 모드 활성화:
+// HTML 요소에 data-theme="dark" 속성 추가
+// <html data-theme="dark"> 또는 <body data-theme="dark">
+*/

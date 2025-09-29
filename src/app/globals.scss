@@ -1,3 +1,5 @@
+@import '../styles/_tokens.scss';
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -9,6 +11,9 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--color-background-inverse);
+  color: var(--color-text-base);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
