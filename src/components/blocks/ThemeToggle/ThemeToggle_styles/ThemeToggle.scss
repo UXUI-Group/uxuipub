@@ -30,10 +30,19 @@
     transform: scale(0.95);
   }
 
-  svg {
+  &__icon {
     width: 24px;
     height: 24px;
     transition: transform 0.3s ease;
+
+    // background-image를 사용하는 경우
+    &--bg {
+      display: block;
+      background-image: var(--lightmode-icon); // 👈 CSS 변수 사용
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 
   // 모바일 반응형
@@ -43,7 +52,7 @@
     width: 48px;
     height: 48px;
 
-    svg {
+    &__icon {
       width: 20px;
       height: 20px;
     }
