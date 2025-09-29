@@ -36,3 +36,12 @@
 - header에서 사용하지 않는 onLogoClick 삭제
 
 [0.1.3]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.3
+
+## [0.1.4] - 2025-09-30
+
+### 추가
+
+- 라이트/다크 모드 테스트 ThemeToggle 컴포넌트 추가
+- Next.js Image 태그 사용, background-image 사용 시 css 변수 사용
+
+[0.1.4]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.4
