@@ -1,0 +1,84 @@
+// Swiper 스타일 import
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+.card-swiper {
+  &__header {
+    margin-bottom: 2rem;
+
+    &-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--color-text-primary);
+    }
+
+    &-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+    }
+  }
+
+  &__container {
+    position: relative;
+
+    .swiper {
+      padding-bottom: 3rem; // pagination을 위한 여백
+
+      &-slide {
+        height: auto;
+        display: flex;
+
+        // 카드가 동일한 높이를 갖도록
+        .card {
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      &-pagination {
+        bottom: 0;
+
+        &-bullet {
+          background: var(--color-primary);
+          opacity: 0.3;
+
+          &-active {
+            opacity: 1;
+          }
+        }
+      }
+
+      &-button-prev,
+      &-button-next {
+        color: var(--color-primary);
+
+        &:after {
+          font-size: 1.5rem;
+        }
+
+        &.swiper-button-disabled {
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+
+  // 반응형 스타일
+  @media (max-width: 1059px) {
+    &__header {
+      margin-bottom: 1.5rem;
+
+      &-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__container {
+      .swiper {
+        padding-bottom: 2rem;
+      }
+    }
+  }
+}

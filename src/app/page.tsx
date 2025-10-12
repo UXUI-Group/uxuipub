@@ -7,6 +7,7 @@ import { Card } from '@/components/blocks/Card';
 import { Button } from '@/components/elements/Button';
 import { config } from '@/config';
 import { ThemeToggle } from '@/components/blocks/ThemeToggle';
+import { CardSwiper } from '@/components/blocks/CardSwiper';
 import './home.scss';
 
 export default function Home() {
@@ -29,6 +30,14 @@ export default function Home() {
       content: '모든 사용자가 접근 가능한 웹사이트를 위한 접근성 가이드라인을 준수합니다.',
       imageUrl: `${config.basePath}/next.svg`,
     },
+  ];
+
+  const cards = [
+    { id: 1, title: '카드 1', description: '설명...' },
+    { id: 2, title: '카드 2', description: '설명...' },
+    { id: 3, title: '카드 3', description: '설명...' },
+    { id: 4, title: '카드 4', description: '설명...' },
+    { id: 5, title: '카드 5', description: '설명...' },
   ];
 
   return (
@@ -58,6 +67,16 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </section>
+
+        {/* Card Swiper Section */}
+        <section className="card-swiper">
+          <CardSwiper
+            cards={cards}
+            title="추천 상품"
+            subtitle="인기 있는 상품들을 확인해보세요"
+            autoplay={{ delay: 3000 }}
+          />
         </section>
 
         {/* Featured Projects */}
