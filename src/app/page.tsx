@@ -1,13 +1,64 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Header } from '@/components/layouts/Header';
 import { Footer } from '@/components/layouts/Footer';
 import { Card } from '@/components/blocks/Card';
 import { Button } from '@/components/elements/Button';
+import { Tabs } from '@/components/elements/Tabs';
 import { config } from '@/config';
 import { ThemeToggle } from '@/components/blocks/ThemeToggle';
 import './home.scss';
+import QuicklinkGroup from '@/components/elements/Quicklink/QuicklinkGroup';
+import krcardImage from '@/images/tsconfig.png';
+import giftcardImage from '@/images/gift-card.png';
+import hotelImage from '@/images/hotel.png';
+import rentacarImage from '@/images/car.png';
+import dutyfreeImage from '@/images/inflight-duty-free.png';
+import insuranceImage from '@/images/travel-insurance.png';
+import travelImage from '@/images/travel-packages.png';
+import { FloatingBanner } from '@/components/elements/Floating-banner';
+
+const KrcardIcon = () => (
+  <span>
+    <Image src={krcardImage} alt="대한항공카드" width={24} height={24} />
+  </span>
+);
+const GiftcardIcon = () => (
+  <span>
+    <Image src={giftcardImage} alt="기프트카드" width={24} height={24} />
+  </span>
+);
+const HotelImage = () => (
+  <span>
+    <Image src={hotelImage} alt="호텔" width={24} height={24} />
+  </span>
+);
+
+const RentacarImage = () => (
+  <span>
+    <Image src={rentacarImage} alt="렌터카" width={24} height={24} />
+  </span>
+);
+
+const DutyfreeImage = () => (
+  <span>
+    <Image src={dutyfreeImage} alt="기내 면세점" width={24} height={24} />
+  </span>
+);
+
+const InsuranceImage = () => (
+  <span>
+    <Image src={insuranceImage} alt="여행자 보험" width={24} height={24} />
+  </span>
+);
+
+const TravelImage = () => (
+  <span>
+    <Image src={travelImage} alt="여행 상품" width={24} height={24} />
+  </span>
+);
 
 export default function Home() {
   const featuredProjects = [
@@ -31,32 +82,79 @@ export default function Home() {
     },
   ];
 
+  const links = [
+    {
+      id: '1',
+      href: 'https://www.koreanair.com/contents/promotion/guide/plcc_hub?eventCode=KAL18',
+      label: '대한항공카드',
+      icon: <KrcardIcon />,
+      target: '_blank' as const,
+    },
+    {
+      id: '2',
+      href: 'https://www.koreanair.com/contents/booking/reservation-guide/gift-card',
+      label: '기프트카드',
+      icon: <GiftcardIcon />,
+      target: '_blank' as const,
+    },
+    {
+      id: '3',
+      label: '호텔',
+      icon: <HotelImage />,
+      sublinks: [
+        { id: '1-1', href: 'https://www.agoda.com/koreanair?ds=W8KvWe4oLvc0ef%2B1', label: '아고다' },
+        {
+          id: '1-2',
+          href: 'https://kr.hotels.com/lp/b/koreanair?locale=ko_KR&rffrid=aff.hcom.KR.038.000.1100l877&affcid=HCOM-KR.DIRECT.PHG.1100l877',
+          label: 'Hotels.com',
+        },
+      ],
+    },
+    {
+      id: '4',
+      label: '렌터카',
+      icon: <RentacarImage />,
+      sublinks: [
+        { id: '1-1', href: 'https://www.koreanair.com/skypass/hertzrentacar/reservation/step1', label: 'Hertz' },
+        { id: '1-2', href: 'https://rent.skdirect.co.kr/?dcnm=koreanAir', label: 'SK렌터카' },
+        { id: '1-3', href: 'https://www.lotterentacar.net/tcompany/kor/main.do', label: '롯데렌터카' },
+        { id: '1-4', href: 'https://koreanair.rentalcars.com/?adplat=mileage&enabler=pbx1', label: 'Rentalcars.com' },
+      ],
+    },
+    {
+      id: '5',
+      href: 'https://www.koreanairdfs.com/?_C_=567666',
+      label: '기내 면세점',
+      icon: <DutyfreeImage />,
+      target: '_blank' as const,
+    },
+    {
+      id: '6',
+      href: 'https://www.koreanair.com/contents/booking/book-and-manage/partner-service/ke-insurance',
+      label: '여행자 보험',
+      icon: <InsuranceImage />,
+      target: '_blank' as const,
+    },
+    {
+      id: '7',
+      label: '여행 상품',
+      icon: <TravelImage />,
+      sublinks: [
+        { id: '1-1', href: 'https://koreanair.kaltour.com/Main/Index_Kal', label: '한진관광' },
+        { id: '1-2', href: 'https://koreanairkp.kaltour.com/Main/Index_KP', label: 'KALPAK' },
+      ],
+    },
+  ];
+
   return (
-    <div className="home-page">
+    <div className="home-page" id="top">
       <Header logo="UXUI Pub" />
 
       <main className="home-main">
         {/* Hero Section */}
         <section className="hero">
           <div className="hero__container">
-            <h1 className="hero__title">
-              창조적인 UI/UX 디자인으로
-              <br />
-              사용자 경험을 혁신합니다
-            </h1>
-            <p className="hero__description">
-              체계적인 디자인 시스템과 현대적인 웹 기술을 통해
-              <br />
-              사용자 중심의 디지털 경험을 만들어갑니다.
-            </p>
-            <div className="hero__actions">
-              <Button variant="type_a" size="large">
-                프로젝트 보기
-              </Button>
-              <Button variant="core" size="large">
-                문의하기
-              </Button>
-            </div>
+            <Tabs variant="type_a" size="medium"></Tabs>
           </div>
         </section>
 
@@ -101,6 +199,12 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="quicklinks">
+          <div className="quicklinks__wrap">
+            <h2 className="quicklinks__title">여행의 완성을 위한 경험</h2>
+            <QuicklinkGroup links={links} layout="grid" />
+          </div>
+        </section>
         <ThemeToggle />
       </main>
 
