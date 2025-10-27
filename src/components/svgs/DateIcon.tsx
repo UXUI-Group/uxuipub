@@ -1,0 +1,44 @@
+import React from 'react';
+
+interface DateIconProps {
+  className?: string;
+  width?: number;
+  height?: number;
+  role?: string;
+  'aria-hidden'?: boolean;
+}
+
+export const DateIcon: React.FC<DateIconProps> = ({
+  className = '',
+  width = 96,
+  height = 96,
+  role = 'none',
+  'aria-hidden': ariaHidden = true,
+  ...props
+}) => {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      width={width}
+      height={height}
+      fill="none"
+      viewBox="0 0 96 96"
+      role={role}
+      aria-hidden={ariaHidden}
+      {...props}
+    >
+      <g clip-path="url(#clip0_9_19320)">
+        <path
+          d="M80.3114 70.0453L82.2306 67.8723C84.5255 65.2626 85.7338 62.2569 85.7338 59.2004V31.2351C85.7338 27.7927 82.9414 25.0003 79.499 25.0003H71.0404V17.75H65.6179V25.0003H30.382V17.75H24.9596V25.0003H16.5009C13.0586 25.0003 10.2661 27.7927 10.2661 31.2351V72.0254C10.2661 75.4678 13.0586 78.2603 16.5009 78.2603L74.7061 78.24C77.6814 78.179 80.5957 76.9808 83.1445 74.7468L85.3175 72.8276H16.5009C16.0541 72.8378 15.6886 72.4824 15.6886 72.0254V45.695H80.3114V70.0453ZM15.6886 40.2725V31.2249C15.6886 30.7781 16.0541 30.4126 16.5009 30.4126H24.9596V35.3375H30.382V30.4126H65.6179V35.3375H71.0404V30.4126H79.499C79.9458 30.4126 80.3114 30.7781 80.3114 31.2249V40.2725H15.6886Z"
+          fill="currentColor"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_9_19320">
+          <rect width={width} height={height} fill="currentColor" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
