@@ -6,3 +6,10 @@ export { MobileKoreanAirLogo } from './MobileKoreanAirLogo';
 export { SkyTeamLogo } from './SkyTeamLogo';
 export { SearchIcon } from './SearchIcon';
 export { MenuIcon } from './MenuIcon';
+
+export { GooglePlayDownIcon } from './GooglePlayDownIcon';
+export { AppStoreDownIcon } from './AppStoreDownIcon';
+export { YoutubeIcon } from './YoutubeIcon';
+export { InstagramIcon } from './InstagramIcon';
+export { FacebookIcon } from './FacebookIcon';
+export { TwitterIcon } from './TwitterIcon';
