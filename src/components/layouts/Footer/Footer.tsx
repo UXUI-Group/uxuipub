@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react'
 import { FooterProps } from './Footer.types'
 import './Footer_styles/Footer.scss'

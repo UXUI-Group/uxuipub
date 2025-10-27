@@ -45,7 +45,7 @@ export const NoticeBoard: React.FC<NoticeBoardProps> = ({
       <div className="notice-board__content">
         <div className="notice-board__list">
           <ul>
-            {notices.map((notice, index) => (
+            {notices.map((notice) => (
               <li key={notice.id} className="notice-board__item">
                 <a href={notice.href} className="notice-board__link">
                   <span className="notice-board__notice-title">{notice.title}</span>
