@@ -6,8 +6,3 @@ export { MobileKoreanAirLogo } from './MobileKoreanAirLogo';
 export { SkyTeamLogo } from './SkyTeamLogo';
 export { SearchIcon } from './SearchIcon';
 export { MenuIcon } from './MenuIcon';
-export { SwapIcon } from './SwapIcon';
-export { DateIcon } from './DateIcon';
-export { PassengerIcon } from './PassengerIcon';
-export { QuestionMark } from './QuestionMark';
-export { ClassIcon } from './ClassIcon';
