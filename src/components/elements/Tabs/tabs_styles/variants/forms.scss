@@ -1,0 +1,196 @@
+.forms {
+  position: relative;
+
+  &.-half {
+    @media (min-width: 1060px) {
+      width: 50%;
+    }
+  }
+
+  &.-full {
+    width: 100%;
+  }
+
+  [type='text'],
+  [type='search'],
+  [type='password'],
+  [type='email'],
+  [type='tel'],
+  [type='number'],
+  select,
+  textarea {
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    display: block;
+    opacity: 1;
+    width: 100%;
+    height: 4rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    background-color: transparent;
+    border-bottom: 1px solid var(--color-border-primary-darkble);
+    border-radius: 0;
+    color: var(--color-text-primary);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    transition: // padding .2s .3s, Chrome Update 후, select 왼쪽이 가려지는 현상으로 인해 임시로 막음
+      border 0.2s 0.3s,
+      //background .2s .3s,
+      color 0.2s 0.3s,
+      box-shadow 0.2s 0.3s;
+
+    &::placeholder {
+      color: var(--color-text-second);
+      opacity: 1;
+    }
+
+    @media (min-width: 1060px) {
+      height: 4.8rem;
+      font-size: 1.8rem;
+      line-height: 1.56;
+    }
+  }
+
+  select {
+    padding-right: 2.4rem;
+    //background: #fff url('#{$IMG_PATH}/icon--arrow-down.svg') no-repeat right center;
+    background-size: 24px 24px;
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  textarea {
+    padding: 0.8rem 1rem;
+    min-height: 12rem;
+    border-radius: 1rem;
+    border: solid 1px var(--color-border-primary-darkble);
+    outline: 0;
+    resize: vertical;
+
+    &:hover,
+    &:focus {
+      border-radius: 1rem !important;
+    }
+  }
+
+  [type='text'],
+  [type='search'],
+  [type='password'],
+  [type='email'],
+  [type='tel'],
+  [type='number'],
+  select,
+  textarea {
+    &:hover,
+    &:focus {
+      padding: 0 1rem;
+      border-bottom-color: transparent;
+      border-radius: 0.2rem;
+      outline: 0;
+      box-shadow: 0 0 0 1px var(--color-border-primary-darkble);
+      color: var(--color-text-primary);
+      transition: padding 0.2s, border 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    &[readonly] {
+      border-bottom-color: var(--color-border-base);
+
+      &.-active {
+        border-bottom-color: var(--color-border-primary-darkble);
+      }
+    }
+
+    &[disabled] {
+      padding: 0 1rem;
+      border-radius: 0;
+      background-color: #fff;
+      border-bottom-color: var(--color-border-base) !important;
+      color: var(--color-text-second);
+      cursor: not-allowed;
+
+      &:hover,
+      &:focus {
+        border-color: var(--color-border-base);
+        border-radius: 0;
+        outline: 0;
+        box-shadow: none;
+      }
+    }
+
+    &[aria-disabled='true'] {
+      padding: 0 1rem;
+      border-radius: 0;
+      background-color: #fff;
+      border-bottom-color: var(--color-border-base) !important;
+      color: var(--color-text-second);
+      cursor: not-allowed;
+    }
+  }
+
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  select {
+    &[disabled],
+    &[aria-disabled='true'] {
+      //background: #fff url('#{$IMG_PATH}/common/ico-select-disabled.svg') no-repeat right center;
+      padding-left: 0;
+    }
+
+    &.-readonly {
+      border-bottom-color: var(--color-border-primary-darkble);
+      //background: #fff url('#{$IMG_PATH}/common/ico-select-disabled.svg') no-repeat right center;
+      color: var(--color-text-second);
+
+      &:hover,
+      &:focus {
+        background-position: right center;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      padding-right: 3.4rem;
+      background-position: calc(100% - 1rem) center;
+    }
+  }
+
+  textarea {
+    &:hover,
+    &:focus {
+      padding: 0.8rem 1rem;
+      border-color: transparent;
+    }
+
+    &[readonly] {
+      border-color: var(--color-border-base);
+    }
+
+    &[disabled] {
+      padding: 0.8rem 1rem;
+      border-color: var(--color-border-base);
+
+      &:hover,
+      &:focus {
+        border-color: var(--color-border-base);
+      }
+    }
+
+    &[aria-disabled='true'] {
+      padding: 0.8rem 1rem;
+      border-color: var(--color-border-base) !important;
+    }
+  }
+}
