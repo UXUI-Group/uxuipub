@@ -1,0 +1,12 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="fillter_icon">
+        <g id="Group">
+            <rect id="Rectangle" y="13" width="16" height="1" rx="0.5" fill="#051766" />
+            <circle id="Oval" cx="4.5" cy="13.5" r="1.5" fill="white" stroke="#051766" />
+            <rect id="Rectangle_2" y="7.5" width="16" height="1" rx="0.5" fill="#051766" />
+            <circle id="Oval_2" cx="11.5" cy="8" r="1.5" fill="white" stroke="#051766" />
+            <rect id="Rectangle_3" y="2" width="16" height="1" rx="0.5" fill="#051766" />
+            <circle id="Oval_3" cx="4.5" cy="2.5" r="1.5" fill="white" stroke="#051766" />
+        </g>
+    </g>
+</svg>

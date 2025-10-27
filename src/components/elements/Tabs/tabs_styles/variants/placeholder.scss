@@ -1,0 +1,23 @@
+.placeholder {
+  position: absolute;
+  top: 0.8rem;
+  width: 100%;
+  color: var(--color-text-second);
+  font-size: 1.6rem;
+  user-select: none;
+  -ms-user-select: none;
+
+  @media (min-width: 1060px) {
+    top: 1rem;
+    font-size: 1.8rem;
+    line-height: 1.56;
+  }
+
+  &.-right {
+    right: 0;
+  }
+
+  &.-spacing {
+    letter-spacing: -0.04rem;
+  }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="9px" viewBox="0 0 11 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Footer_sns-popup" transform="translate(-3205.000000, -449.000000)" fill-rule="nonzero">
+            <g id="Group" transform="translate(2911.000000, 449.000000)">
+                <g id="b-link" transform="translate(0.000000, 8.000000)" fill="#000000">
+                    <rect id="b" x="0" y="0" width="320" height="178" rx="2"></rect>
+                </g>
+                <path d="M299.5,1.93762207 L303.933,8.49962207 L317.5,8.5 C318.604569,8.5 319.5,9.3954305 319.5,10.5 L319.5,183.5 C319.5,184.604569 318.604569,185.5 317.5,185.5 L2.5,185.5 C1.3954305,185.5 0.5,184.604569 0.5,183.5 L0.5,10.5 C0.5,9.3954305 1.3954305,8.5 2.5,8.5 L295.067,8.49962207 L299.5,1.93762207 Z" id="Combined-Shape" stroke="#051766" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
