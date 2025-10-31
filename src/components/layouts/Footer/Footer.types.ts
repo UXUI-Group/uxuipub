@@ -1,12 +1,7 @@
 export interface FooterProps {
   companyName?: string
   year?: number
-  sections?: FooterSection[]
-}
-
-export interface FooterSection {
-  title: string
-  links: FooterLink[]
+  links?: FooterLink[]
 }
 
 export interface FooterLink {
