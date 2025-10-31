@@ -1,39 +1,9 @@
 @import '../styles/_tokens.scss';
 
-:root {
-  font-size: 62.5%;
-  --word-break: keep-all;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-
-  &._hidden {
-    overflow: hidden;
-    white-space: nowrap;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-
-  &._mo-hidden {
-    @media (max-width: 1059px) {
-      display: none !important;
-    }
-  }
-
-  &._pc-hidden {
-    @media (min-width: 1060px) {
-      display: none !important;
-    }
-  }
 }
 
 html,
@@ -44,10 +14,6 @@ body {
   background-color: var(--color-background-inverse);
   color: var(--color-text-base);
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body {
-  line-height: 1.5;
 }
 
 a {
