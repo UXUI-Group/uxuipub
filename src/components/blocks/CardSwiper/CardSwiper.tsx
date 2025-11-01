@@ -1,16 +1,49 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { Card } from '../Card';
-import { CardSwiperProps } from './CardSwiper.types';
+import { CardSwiperProps, CardData } from './CardSwiper.types';
+import { ArrowLeftIcon, ArrowRightIcon } from '@/components/svgs';
 import './CardSwiper_styles/CardSwiper.scss';
+
+// CardSwiper 내부에서 사용할 간단한 카드 컴포넌트
+const SwiperCard: React.FC<CardData & { index: number; total: number }> = ({ description, image, index, total }) => {
+  const CardContent = (
+    <div className="swiper-card">
+      <a href="#none" className="swiper-card__link">
+        {image && (
+          <div className="swiper-card__image">
+            <Image
+              className="swiper-card__image-img"
+              src={image}
+              alt=""
+              width={300}
+              height={200}
+              style={{ objectFit: 'cover' }}
+            />
+            <span aria-hidden="true" className="swiper-card__pagination">
+              <span className="swiper-card__pagination-current">{index + 1}</span>/{total}
+            </span>
+
+            <span className="_hidden">
+              {total}번째 목록 중 {index + 1}번째
+            </span>
+          </div>
+        )}
+        <div className="swiper-card__content">
+          {description && <p className="swiper-card__description">{description}</p>}
+        </div>
+      </a>
+    </div>
+  );
+
+  return CardContent;
+};
 
 export const CardSwiper: React.FC<CardSwiperProps> = ({
   cards,
-  title,
-  subtitle,
   className = '',
   slidesPerView = 3,
   spaceBetween = 24,
@@ -18,20 +51,30 @@ export const CardSwiper: React.FC<CardSwiperProps> = ({
   loop = false,
   autoplay = false,
   navigation = true,
-  pagination = true,
+  pagination = false,
   breakpoints = {
-    320: {
-      slidesPerView: 1.08, // 다음 카드가 살짝 보이도록
+    0: {
+      slidesPerView: 1.06,
+      spaceBetween: 20,
+    },
+    480: {
+      slidesPerView: 1.7,
+      spaceBetween: 20,
+    },
+    700: {
+      slidesPerView: 2.08,
       spaceBetween: 16,
     },
     1060: {
       slidesPerView: 3,
-      spaceBetween: 24,
+      spaceBetween: 30,
     },
   },
   onSlideChange,
   onSwiper,
 }) => {
+  const [swiperInitialized, setSwiperInitialized] = useState(false);
+
   const swiperModules = [
     ...(navigation ? [Navigation] : []),
     ...(pagination ? [Pagination] : []),
@@ -39,14 +82,7 @@ export const CardSwiper: React.FC<CardSwiperProps> = ({
   ];
 
   return (
-    <div className={`card-swiper ${className}`}>
-      {(title || subtitle) && (
-        <div className="card-swiper__header">
-          {title && <h2 className="card-swiper__header-title">{title}</h2>}
-          {subtitle && <p className="card-swiper__header-subtitle">{subtitle}</p>}
-        </div>
-      )}
-
+    <div className={`card-swiper ${className} ${swiperInitialized ? 'swiper-initialized' : ''}`}>
       <div className="card-swiper__container">
         <Swiper
           modules={swiperModules}
@@ -55,26 +91,41 @@ export const CardSwiper: React.FC<CardSwiperProps> = ({
           centeredSlides={centeredSlides}
           loop={loop}
           autoplay={autoplay}
-          navigation={navigation}
+          navigation={
+            navigation
+              ? {
+                  prevEl: '.card-swiper__button-prev',
+                  nextEl: '.card-swiper__button-next',
+                }
+              : false
+          }
           pagination={pagination ? { clickable: true } : false}
           breakpoints={breakpoints}
           onSlideChange={onSlideChange}
-          onSwiper={onSwiper}
+          onSwiper={swiper => {
+            setSwiperInitialized(true);
+            onSwiper?.(swiper);
+          }}
+          wrapperTag="ul"
         >
-          {cards.map(card => (
-            <SwiperSlide key={card.id}>
-              <Card
-                title={card.title}
-                subtitle={card.subtitle}
-                description={card.description}
-                image={card.image}
-                link={card.link}
-                badge={card.badge}
-                price={card.price}
-              />
+          {cards.map((card, index) => (
+            <SwiperSlide key={card.id} tag="li">
+              <SwiperCard {...card} index={index} total={cards.length} />
             </SwiperSlide>
           ))}
         </Swiper>
+        <button type="button" className="card-swiper__button-prev">
+          <span className="card-swiper__button-prev-icon">
+            <ArrowLeftIcon width={20} height={20} />
+          </span>
+          <span className="_hidden">이전</span>
+        </button>
+        <button type="button" className="card-swiper__button-next">
+          <span className="card-swiper__button-next-icon">
+            <ArrowRightIcon width={20} height={20} />
+          </span>
+          <span className="_hidden">다음</span>
+        </button>
       </div>
     </div>
   );

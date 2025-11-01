@@ -1,9 +1,11 @@
+import { StaticImageData } from 'next/image';
+
 export interface CardData {
   id: string | number;
   title: string;
   subtitle?: string;
   description?: string;
-  image?: string;
+  image?: string | StaticImageData;
   link?: string;
   badge?: string;
   price?: string;
@@ -32,6 +34,6 @@ export interface CardSwiperProps {
       spaceBetween?: number;
     };
   };
-  onSlideChange?: (swiper: any) => void;
-  onSwiper?: (swiper: any) => void;
+  onSlideChange?: (swiper: unknown) => void;
+  onSwiper?: (swiper: unknown) => void;
 }
