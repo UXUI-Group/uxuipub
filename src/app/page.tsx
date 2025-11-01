@@ -7,7 +7,13 @@ import { Card } from '@/components/blocks/Card';
 import { Button } from '@/components/elements/Button';
 import { config } from '@/config';
 import { ThemeToggle } from '@/components/blocks/ThemeToggle';
-import { NoticeBoard } from '@/components/blocks/NoticeBoard'
+import { CardSwiper } from '@/components/blocks/CardSwiper';
+import Card01Image from '@/images/img--card01.jpg';
+import Card02Image from '@/images/img--card02.jpg';
+import Card03Image from '@/images/img--card03.jpg';
+import Card04Image from '@/images/img--card04.png';
+import Card05Image from '@/images/img--card05.jpg';
+import { NoticeBoard } from '@/components/blocks/NoticeBoard';
 import './home.scss';
 
 export default function Home() {
@@ -30,6 +36,29 @@ export default function Home() {
       content: '모든 사용자가 접근 가능한 웹사이트를 위한 접근성 가이드라인을 준수합니다.',
       imageUrl: `${config.basePath}/next.svg`,
     },
+  ];
+
+  const cards = [
+    { id: 1, title: '카드 1', description: '대한항공 기프트카드로 여행을 선물하세요', image: Card01Image },
+    {
+      id: 2,
+      title: '카드 2',
+      description: '인천공항 미리보기 서비스를 대한항공 앱에서 만나보세요',
+      image: Card02Image,
+    },
+    {
+      id: 3,
+      title: '카드 3',
+      description: '1천원당 최대 5마일 적립에 항공권 최대 20만원 할인까지',
+      image: Card03Image,
+    },
+    {
+      id: 4,
+      title: '카드 4',
+      description: '여러 개의 회원번호를 보유한 회원이라면, 하나로 통합하세요',
+      image: Card04Image,
+    },
+    { id: 5, title: '카드 5', description: '신규 취항 및 운항 재개 노선 스케줄을 확인하세요', image: Card05Image },
   ];
 
   return (
@@ -59,6 +88,11 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </section>
+
+        {/* Card Swiper Section */}
+        <section className="section-swiper">
+          <CardSwiper cards={cards} autoplay={{ delay: 5000 }} />
         </section>
 
         {/* Featured Projects */}
@@ -102,39 +136,38 @@ export default function Home() {
           </div>
         </section>
 
-
-          <section className="notice-section">
-            <NoticeBoard
-              title="알려드립니다"
-              viewAllLink="/notices"
-              notices={[
-                {
-                  id: 1,
-                  title: '마일리지 몰 기획전 SKYPASS Deal 안내',
-                  date: '2025년 06월 23일',
-                  href: '/notices/1'
-                },
-                {
-                  id: 2,
-                  title: '개인정보 처리방침 개정',
-                  date: '2025년 06월 23일',
-                  href: '/notices/2'
-                },
-                {
-                  id: 3,
-                  title: '한국 출발 국제선 유류할증료(2025년 7월)',
-                  date: '2025년 06월 23일',
-                  href: '/notices/3'
-                },
-                {
-                  id: 4,
-                  title: '신규 취항 및 재개 노선 스케줄 안내',
-                  date: '2025년 06월 23일',
-                  href: '/notices/4'
-                }
-              ]}
-            />
-          </section>
+        <section className="notice-section">
+          <NoticeBoard
+            title="알려드립니다"
+            viewAllLink="/notices"
+            notices={[
+              {
+                id: 1,
+                title: '마일리지 몰 기획전 SKYPASS Deal 안내',
+                date: '2025년 06월 23일',
+                href: '/notices/1',
+              },
+              {
+                id: 2,
+                title: '개인정보 처리방침 개정',
+                date: '2025년 06월 23일',
+                href: '/notices/2',
+              },
+              {
+                id: 3,
+                title: '한국 출발 국제선 유류할증료(2025년 7월)',
+                date: '2025년 06월 23일',
+                href: '/notices/3',
+              },
+              {
+                id: 4,
+                title: '신규 취항 및 재개 노선 스케줄 안내',
+                date: '2025년 06월 23일',
+                href: '/notices/4',
+              },
+            ]}
+          />
+        </section>
 
         <ThemeToggle />
       </main>
