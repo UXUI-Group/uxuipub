@@ -13,6 +13,7 @@ import Card02Image from '@/images/img--card02.jpg';
 import Card03Image from '@/images/img--card03.jpg';
 import Card04Image from '@/images/img--card04.png';
 import Card05Image from '@/images/img--card05.jpg';
+import { NoticeBoard } from '@/components/blocks/NoticeBoard';
 import './home.scss';
 
 export default function Home() {
@@ -133,6 +134,39 @@ export default function Home() {
               지금 시작하기
             </Button>
           </div>
+        </section>
+
+        <section className="notice-section">
+          <NoticeBoard
+            title="알려드립니다"
+            viewAllLink="/notices"
+            notices={[
+              {
+                id: 1,
+                title: '마일리지 몰 기획전 SKYPASS Deal 안내',
+                date: '2025년 06월 23일',
+                href: '/notices/1',
+              },
+              {
+                id: 2,
+                title: '개인정보 처리방침 개정',
+                date: '2025년 06월 23일',
+                href: '/notices/2',
+              },
+              {
+                id: 3,
+                title: '한국 출발 국제선 유류할증료(2025년 7월)',
+                date: '2025년 06월 23일',
+                href: '/notices/3',
+              },
+              {
+                id: 4,
+                title: '신규 취항 및 재개 노선 스케줄 안내',
+                date: '2025년 06월 23일',
+                href: '/notices/4',
+              },
+            ]}
+          />
         </section>
 
         <ThemeToggle />
