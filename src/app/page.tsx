@@ -150,6 +150,7 @@ export default function Home() {
         { id: '1-2', href: 'https://koreanairkp.kaltour.com/Main/Index_KP', label: 'KALPAK' },
       ],
     },
+  ];
   const cards = [
     { id: 1, title: '카드 1', description: '대한항공 기프트카드로 여행을 선물하세요', image: Card01Image },
     {
