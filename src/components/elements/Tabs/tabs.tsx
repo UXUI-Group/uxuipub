@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { TabsProps, TabItem } from './tabs.type';
 import './tabs_styles/tabs.scss';
 
-import Image from 'next/image';
 import { SwapIcon, QuestionMark, DateIcon, PassengerIcon, ClassIcon } from '@/components/svgs';
 
 // 팝오버 타입 정의

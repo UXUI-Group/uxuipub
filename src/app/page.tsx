@@ -18,7 +18,6 @@ import rentacarImage from '@/images/car.png';
 import dutyfreeImage from '@/images/inflight-duty-free.png';
 import insuranceImage from '@/images/travel-insurance.png';
 import travelImage from '@/images/travel-packages.png';
-import { FloatingBanner } from '@/components/elements/Floating-banner';
 
 const KrcardIcon = () => (
   <span>
