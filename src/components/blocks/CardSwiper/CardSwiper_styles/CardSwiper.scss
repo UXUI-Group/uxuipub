@@ -1,0 +1,210 @@
+// Swiper 스타일 import
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+// SwiperCard 컴포넌트 스타일
+.swiper-card {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem #0000001a;
+  background: var(--color-background-inverse);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      .swiper-card__image-img {
+        transform: scale(1.14);
+      }
+
+      .swiper-card__description {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__image {
+    overflow: hidden;
+    position: relative;
+    height: 23rem;
+
+    &-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 4.3rem;
+    height: 2.2rem;
+    padding: 0 0.5rem;
+    border-radius: 1rem 0 0;
+    background-color: var(--color-background-dark-alpha);
+    color: #fff;
+    font-size: 1.2rem;
+
+    @media (min-width: 1060px) {
+      display: none;
+    }
+
+    &-current {
+      font-weight: 700;
+    }
+  }
+
+  &__content {
+    min-height: 8.4rem;
+    padding: 1.6rem 2.4rem;
+    font-size: 1.6rem;
+    line-height: 1.63;
+    color: var(--color-text-primary);
+    background-color: var(--color-background-inverse-toneup);
+  }
+}
+
+.card-swiper {
+  // Swiper가 초기화되기 전까지 이미지 숨기기
+  &:not(.swiper-initialized) {
+    .swiper-card__image-img {
+      display: none;
+    }
+
+    // 로딩 중 플레이스홀더 표시
+    .swiper-card__image::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 200px;
+      background-color: var(--color-background-secondary, #f5f5f5);
+      border-radius: 0.5rem;
+    }
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__button-prev,
+  &__button-next {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    font-family: inherit;
+    background: transparent;
+    cursor: pointer;
+    background-color: pink;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 2.5rem;
+    height: 5rem;
+    top: 50%;
+    background-color: var(--color-background-primary-darkblue-alpha);
+    box-shadow: 0 0 0.8rem #0003;
+    transform: translateY(-50%);
+    transition: background-color 0.2s;
+
+    &:hover:not(.swiper-button-disabled),
+    &:focus:not(.swiper-button-disabled) {
+      background-color: var(--color-background-dark-alpha);
+      outline: 0;
+    }
+
+    &.swiper-button-disabled {
+      background-color: var(--color-background-base-gray);
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &-icon {
+      display: flex;
+      width: 2rem;
+      height: 2rem;
+      color: var(--color-icon-inverse);
+      transition: transform 0.2s;
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__button-prev {
+    justify-content: flex-start;
+    left: 0;
+    border-radius: 0 2.5rem 2.5rem 0;
+
+    &:hover:not(.swiper-button-disabled),
+    &:focus:not(.swiper-button-disabled) {
+      .card-swiper__button-prev-icon {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__button-next {
+    justify-content: flex-end;
+    right: 0;
+    border-radius: 2.5rem 0 0 2.5rem;
+
+    &:hover:not(.swiper-button-disabled),
+    &:focus:not(.swiper-button-disabled) {
+      .card-swiper__button-next-icon {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .swiper {
+    padding: 1rem 2rem;
+  }
+
+  @media (min-width: 1060px) {
+    padding: 0 2rem;
+
+    .swiper {
+      padding: 1rem 0;
+    }
+  }
+}
+
+[data-theme='dark'] .card-swiper {
+  &__button-prev,
+  &__button-next {
+    &:hover:not(.swiper-button-disabled),
+    &:focus:not(.swiper-button-disabled) {
+      background-color: var(--color-background-primary-darkblue-alpha);
+    }
+
+    &.swiper-button-disabled {
+      .card-swiper__button-prev-icon,
+      .card-swiper__button-next-icon {
+        color: var(--color-icon-inverse-grey);
+      }
+    }
+  }
+}
