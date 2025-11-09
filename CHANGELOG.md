@@ -45,3 +45,12 @@
 - Next.js Image 태그 사용, background-image 사용 시 css 변수 사용
 
 [0.1.4]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.4
+
+## [0.1.5] - 2025-11-10
+
+### 추가
+
+- footer, notice-board, tabs, quicklink, cardSwiper, header
+- home 페이지에 불필요한 코드 삭제
+
+[0.1.5]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.5

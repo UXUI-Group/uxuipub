@@ -9,13 +9,13 @@ export default function MyPage() {
   return (
     <div className="mypage">
       <Header logo="UXUI Pub" />
-
+      
       <main className="mypage-main">
         <div className="container">
           <section className="profile-section">
             <h1 className="page-title">마이페이지</h1>
             <p className="page-description">개인 정보와 활동 내역을 확인하세요.</p>
-
+            
             <div className="profile-grid">
               <Card
                 title="프로필 정보"
@@ -27,7 +27,7 @@ export default function MyPage() {
                   </Button>
                 }
               />
-
+              
               <Card
                 title="프로젝트 히스토리"
                 content="참여했던 프로젝트들의 기록을 확인하세요."
@@ -38,7 +38,7 @@ export default function MyPage() {
                   </Button>
                 }
               />
-
+              
               <Card
                 title="설정"
                 content="알림, 보안, 개인정보 설정을 변경할 수 있습니다."
@@ -53,7 +53,7 @@ export default function MyPage() {
           </section>
         </div>
       </main>
-
+      
       <Footer />
     </div>
   )
