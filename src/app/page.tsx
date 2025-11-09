@@ -167,13 +167,6 @@ export default function Home() {
           <CardSwiper cards={cards} autoplay={{ delay: 5000 }} />
         </section>
 
-        <section className="quicklinks">
-          <div className="quicklinks__wrap">
-            <h2 className="quicklinks__title">여행의 완성을 위한 경험</h2>
-            <QuicklinkGroup links={links} layout="grid" />
-          </div>
-        </section>
-
         <section className="notice-section">
           <NoticeBoard
             title="알려드립니다"
@@ -205,6 +198,13 @@ export default function Home() {
               },
             ]}
           />
+        </section>
+
+        <section className="quicklinks">
+          <div className="quicklinks__wrap">
+            <h2 className="quicklinks__title">여행의 완성을 위한 경험</h2>
+            <QuicklinkGroup links={links} layout="grid" />
+          </div>
         </section>
 
         <ThemeToggle />
