@@ -4,6 +4,30 @@
   flex-direction: column;
 }
 
+// Skip Navigation (접근성)
+.skip-nav {
+  position: fixed;
+  left: 0;
+  top: -100px;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background-color: var(--color-background-brand-primary);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.8rem;
+  border: 1px solid var(--color-border-primary-darkble);
+  border-radius: 0 0 4px 0;
+  transition: top 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  &:focus {
+    top: 0;
+    outline: 3px solid var(--color-border-focus);
+    outline-offset: 2px;
+  }
+}
+
 .home-main {
   flex: 1;
 }
@@ -18,11 +42,14 @@
   color: var(--color-text-inverse-fixed);
   padding: 120px 0;
   text-align: center;
+  @media (max-width: 768px) {
+    padding: 20px 0;
+  }
 
   &__container {
-    max-width: 1200px;
+    max-width: 1320px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
   }
 
   &__title {

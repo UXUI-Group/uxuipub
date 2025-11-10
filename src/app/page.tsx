@@ -152,9 +152,12 @@ export default function Home() {
 
   return (
     <div className="home-page" id="top">
+      <a href="#main-content" className="skip-nav">
+        메인 콘텐츠로 건너뛰기
+      </a>
       <Header logo="UXUI Pub" />
 
-      <main className="home-main">
+      <main className="home-main" id="main-content">
         {/* Hero Section */}
         <section className="hero">
           <div className="hero__container">
@@ -165,13 +168,6 @@ export default function Home() {
         {/* Card Swiper Section */}
         <section className="section-swiper">
           <CardSwiper cards={cards} autoplay={{ delay: 5000 }} />
-        </section>
-
-        <section className="quicklinks">
-          <div className="quicklinks__wrap">
-            <h2 className="quicklinks__title">여행의 완성을 위한 경험</h2>
-            <QuicklinkGroup links={links} layout="grid" />
-          </div>
         </section>
 
         <section className="notice-section">
@@ -205,6 +201,13 @@ export default function Home() {
               },
             ]}
           />
+        </section>
+
+        <section className="quicklinks">
+          <div className="quicklinks__wrap">
+            <h2 className="quicklinks__title">여행의 완성을 위한 경험</h2>
+            <QuicklinkGroup links={links} layout="grid" />
+          </div>
         </section>
 
         <ThemeToggle />
