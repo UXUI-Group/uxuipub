@@ -54,3 +54,32 @@
 - home 페이지에 불필요한 코드 삭제
 
 [0.1.5]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.5
+
+## [0.1.6] - 2025-11-11
+
+### 추가
+
+- Korean Air 브랜드 파비콘 구현
+  - 동그란 배경 디자인 적용
+  - 다크모드 자동 감지 및 색상 반전 지원
+  - 라이트 모드: 흰색 배경 + 브랜드 블루 (#0D3674)
+  - 다크 모드: 어두운 배경 + 흰색 로고
+- KoreanAirLogoIcon 컴포넌트 추가 (40x40 아이콘 버전)
+- 다크모드 테마 전환 시스템 구현
+  - localStorage 기반 사용자 테마 설정 저장
+  - 시스템 테마 자동 감지
+  - suppressHydrationWarning을 통한 SSR 깜빡임 방지
+- Korean Air 브랜드 이미지 추가 (A_PC_NEW_CI_ko.png)
+
+### 수정
+
+- 사이트 타이틀을 '대한항공'으로 변경
+- 메타데이터에 파비콘 설정 최적화 (SVG 우선)
+- 기존 favicon.ico 제거하여 SVG 파비콘 우선 적용
+- Header 레이아웃 및 스타일 개선
+- NoticeBoard 컴포넌트 스타일 업데이트
+- CardSwiper 컴포넌트 스타일 개선
+- Tabs 컴포넌트 스타일 업데이트 (core, type_a)
+- 글로벌 스타일 및 홈페이지 스타일 개선
+
+[0.1.6]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.6
