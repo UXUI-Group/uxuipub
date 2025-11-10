@@ -153,6 +153,13 @@
     }
   }
 
+  &__button-prev,
+  &__button-next {
+    &:focus:not(.swiper-button-disabled) {
+      outline: 2px solid var(--color-border-primary-darkble);
+    }
+  }
+
   &__button-prev {
     justify-content: flex-start;
     left: 0;
