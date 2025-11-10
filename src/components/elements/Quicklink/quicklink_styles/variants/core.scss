@@ -3,8 +3,11 @@ $IMG_PATH: '../../../../../images';
 
 .quicklinks {
   background: var(--color-background-primary-lightblue-alpha);
-  padding: 5rem 0;
+  padding: 3.2rem 0;
   transition: padding 0.3s ease;
+  @media (min-width: 1060px) {
+    padding: 5rem 0;
+  }
 
   &__wrap {
     max-width: 1320px;

@@ -18,11 +18,14 @@
   color: var(--color-text-inverse-fixed);
   padding: 120px 0;
   text-align: center;
+  @media (max-width: 768px) {
+    padding: 20px 0;
+  }
 
   &__container {
     max-width: 1320px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
   }
 
   &__title {
