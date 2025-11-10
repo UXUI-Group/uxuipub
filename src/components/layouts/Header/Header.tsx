@@ -70,6 +70,11 @@ export const Header: React.FC<HeaderProps> = () => {
                 <span className="kal-header-search__button-text">궁금한 것을 검색해 보세요!</span>
                 <SearchIcon className="kal-header-search__button-icon" />
               </button>
+
+              <button type="button" className="kal-header-search__button-tablet">
+                <span className="_hidden">궁금한 것을 검색해 보세요!</span>
+                <SearchIcon className="kal-header-search__button-icon" />
+              </button>
             </div>
             <div className="kal-header__actions-auth">
               <Link href="#none" className="kal-header-auth-link">

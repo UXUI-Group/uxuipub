@@ -101,6 +101,7 @@
 
     &:focus,
     &:hover {
+      outline: 0;
       text-decoration: underline;
     }
 
@@ -576,7 +577,7 @@
     &:hover,
     &:focus {
       outline: 0;
-      box-shadow: inset 0 0 0 1px var(--color-border-primary);
+      box-shadow: inset 0 0 0 1px var(--color-border-primary-darkble);
     }
 
     &[disabled] {
@@ -671,22 +672,6 @@
       font-size: 1.6rem;
       letter-spacing: 0;
       padding-left: 3.2rem;
-    }
-
-    &:focus,
-    &:hover {
-      outline: 0;
-      border-radius: 0.3rem;
-      box-shadow: inset 0 0 0 1px var(--color-border-primary-darkble);
-      border-bottom-color: var(--color-text-primary);
-
-      @media (min-width: 1060px) {
-        //padding-left: 1rem;
-      }
-
-      // .app & {
-      //   .focusless();
-      // }
     }
   }
   &__date-icon {
@@ -1079,22 +1064,6 @@
       padding: 0;
       font-size: 1.6rem;
       letter-spacing: 0;
-    }
-
-    &:focus,
-    &:hover {
-      outline: 0;
-      border-radius: 0.3rem;
-      box-shadow: inset 0 0 0 1px var(--color-border-primary);
-      border-bottom-color: var(--color-text-primary);
-
-      @media (min-width: 1060px) {
-        // padding-left: 1rem;
-      }
-
-      // .app & {
-      //   .focusless();
-      // }
     }
   }
 
@@ -1791,7 +1760,7 @@
     label:hover {
       outline: 0;
       border-radius: 0.3rem;
-      box-shadow: inset 0 0 0 1px var(--color-border-primary);
+      box-shadow: inset 0 0 0 1px var(--color-border-primary-darkble);
     }
   }
 
@@ -2046,18 +2015,6 @@
       padding: 0;
       font-size: 1.6rem;
       letter-spacing: 0;
-    }
-
-    &:focus,
-    &:hover {
-      outline: 0;
-      border-radius: 0.3rem;
-      box-shadow: inset 0 0 0 1px var(--color-border-primary);
-      border-bottom-color: var(--color-border-primary);
-
-      @media (min-width: 1060px) {
-        //padding-left: 1rem;
-      }
     }
   }
 
