@@ -39,6 +39,9 @@
     var(--color-background-primary-darkblue) 0%,
     var(--color-background-primary-lightblue) 100%
   );
+  background-image: url(../images/main-bg-img-motif-mo.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
   color: var(--color-text-inverse-fixed);
   padding: 120px 0;
   text-align: center;
@@ -46,6 +49,13 @@
     padding: 20px 0;
   }
 
+  @media (min-width: 768px) {
+    background-image: url(../images/main-bg-img-motif-ta.jpg);
+  }
+
+  @media (min-width: 1060px) {
+    background-image: url(../images/main-bg-img-motif-pc.jpg);
+  }
   &__container {
     max-width: 1320px;
     margin: 0 auto;
