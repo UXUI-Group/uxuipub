@@ -41,13 +41,12 @@ $IMG_PATH: '../../../../../images';
   }
 
   & > .quicklink {
-    background-color: transparent;
     margin-bottom: 0;
     padding: 2rem 2rem 2rem 8rem;
+    background: var(--color-background-primary-lightblue10);
 
     @media (min-width: 1060px) {
       padding: 2rem;
-      background: var(--color-background-primary-lightblue10);
     }
   }
 
