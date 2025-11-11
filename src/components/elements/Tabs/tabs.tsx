@@ -1178,7 +1178,6 @@ export const Tabs: React.FC<TabsProps> = ({
           className={`booking-widget__panel ${index === activeTabIndex ? '-active' : ''}`}
           aria-labelledby={tab.id}
           aria-hidden={index !== activeTabIndex}
-          tabIndex={0}
         >
           {tab.content}
         </div>

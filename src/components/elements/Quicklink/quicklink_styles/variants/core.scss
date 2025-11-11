@@ -102,10 +102,10 @@ $IMG_PATH: '../../../../../images';
     background-color: #ffffff;
   }
 
-  &:focus-visible {
-    outline: 2px solid #051766;
-    outline-offset: 2px;
-  }
+  // &:focus-visible {
+  //   outline: 2px solid #051766;
+  //   outline-offset: 2px;
+  // }
 
   &:active {
     transform: translateY(1px);
