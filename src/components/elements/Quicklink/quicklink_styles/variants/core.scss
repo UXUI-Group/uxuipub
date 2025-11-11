@@ -41,13 +41,12 @@ $IMG_PATH: '../../../../../images';
   }
 
   & > .quicklink {
-    background-color: transparent;
     margin-bottom: 0;
     padding: 2rem 2rem 2rem 8rem;
+    background: var(--color-background-primary-lightblue10);
 
     @media (min-width: 1060px) {
       padding: 2rem;
-      background: var(--color-background-primary-lightblue10);
     }
   }
 
@@ -103,10 +102,10 @@ $IMG_PATH: '../../../../../images';
     background-color: #ffffff;
   }
 
-  &:focus-visible {
-    outline: 2px solid #051766;
-    outline-offset: 2px;
-  }
+  // &:focus-visible {
+  //   outline: 2px solid #051766;
+  //   outline-offset: 2px;
+  // }
 
   &:active {
     transform: translateY(1px);

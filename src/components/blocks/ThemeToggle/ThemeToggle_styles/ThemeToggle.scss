@@ -31,17 +31,31 @@
   }
 
   &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 24px;
     height: 24px;
     transition: transform 0.3s ease;
 
-    // background-image를 사용하는 경우
-    &--bg {
-      display: block;
-      background-image: var(--lightmode-icon); // 👈 CSS 변수 사용
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
+    // SVG의 currentColor를 제어
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // 다크모드일 때 아이콘 색상을 하얀색으로
+  [data-theme='dark'] & {
+    &__icon {
+      color: white;
+    }
+  }
+
+  // 라이트모드일 때 아이콘 색상
+  [data-theme='light'] & {
+    &__icon {
+      color: var(--color-icon-primary);
     }
   }
 

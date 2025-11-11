@@ -20,3 +20,5 @@ export { YoutubeIcon } from './YoutubeIcon';
 export { InstagramIcon } from './InstagramIcon';
 export { FacebookIcon } from './FacebookIcon';
 export { TwitterIcon } from './TwitterIcon';
+export { LightModeIcon } from './LightModeIcon';
+export { DarkModeIcon } from './DarkModeIcon';

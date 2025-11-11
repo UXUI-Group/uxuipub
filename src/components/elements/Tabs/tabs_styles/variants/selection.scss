@@ -97,7 +97,7 @@
     left: 0;
     width: 1.8rem;
     height: 1.8rem;
-    border: 1px solid var(--color-border-primary);
+    border: 1px solid var(--color-border-primary-darkble);
     border-radius: 0.2rem;
     background-size: 11px 9px;
 
@@ -116,7 +116,7 @@
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 1.8rem;
-    border: 1px solid var(--color-border-primary);
+    border: 1px solid var(--color-border-primary-darkble);
     background-size: 11px 9px;
 
     @media (min-width: 1060px) {
@@ -126,7 +126,13 @@
 
   .buttonCheckbox.-checked:before,
   [type='checkbox']:checked ~ label:before {
-    //background: var(--color-border-primary) url('#{$IMG_PATH}/common/ico-checkbox.svg') no-repeat 50% 50%;
+    background: var(--color-border-primary-darkble) url('../../../../../images/common/ico-checkbox.svg') no-repeat 50%
+      50%;
+  }
+
+  [data-theme='dark'] & .buttonCheckbox.-checked:before,
+  [data-theme='dark'] & [type='checkbox']:checked ~ label:before {
+    background: transparent url('../../../../../images/common/ico-checkbox.svg') no-repeat 50% 50%;
   }
 
   .buttonRadio.-checked:before,

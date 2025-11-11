@@ -485,11 +485,6 @@ const BookingPanel: React.FC<{
 
 const ReservationTab: React.FC<{ type: 'reservation' | 'checkin' }> = ({ type }) => (
   <div className="quickmytrips">
-    <div className="alert" tabIndex={-1}>
-      <p className="p">
-        <em className="remark -negative">경고문구</em>
-      </p>
-    </div>
     <div className="quickmytrips__aligner">
       <div className="quickmytrips__separate -number">
         <label htmlFor={`number-${type}`} className="quickmytrips__label label">
@@ -1183,7 +1178,6 @@ export const Tabs: React.FC<TabsProps> = ({
           className={`booking-widget__panel ${index === activeTabIndex ? '-active' : ''}`}
           aria-labelledby={tab.id}
           aria-hidden={index !== activeTabIndex}
-          tabIndex={0}
         >
           {tab.content}
         </div>
