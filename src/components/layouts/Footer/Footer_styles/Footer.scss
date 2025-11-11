@@ -1,7 +1,7 @@
 .footer {
   background-color: var(--color-background-inverse-toneup);
   color: var(--color-text-inverse);
-  padding: 6.4rem 0 4rem;
+  padding: 6.4rem 4rem 4rem;
   @media (max-width: 1024px) {
     padding: 6.4rem 2rem 4rem;
   }
@@ -121,7 +121,6 @@
 
     @media (max-width: 768px) {
       border-top: solid 1px var(--color-border-base);
-
     }
   }
 
@@ -206,7 +205,7 @@
   &__badge {
     align-items: center;
     height: 34px;
-    border-radius: .6rem;
+    border-radius: 0.6rem;
     background-color: var(--color-background-dark-alpha);
     text-decoration: none;
 
@@ -256,7 +255,6 @@
     text-align: left;
   }
 
-
   &__company-chevron {
     color: var(--color-icon-primary);
     transition: transform 0.2s ease;
@@ -294,7 +292,7 @@
       &::after {
         display: flex;
         content: '|';
-        color: #D9DBE1;
+        color: #d9dbe1;
       }
       &:nth-child(3n) {
         margin-right: 45%;
@@ -312,7 +310,6 @@
     }
 
     @media (max-width: 768px) {
-
       &-text {
         &:nth-child(3n) {
           margin-right: 0;
@@ -324,7 +321,5 @@
         }
       }
     }
-
   }
-
 }
