@@ -1,9 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import DarkModeIcon from '@/images/icon/darkmode-icon.svg';
-import LightModeIcon from '@/images/icon/lightmode-icon.svg';
+import { LightModeIcon, DarkModeIcon } from '@/components/svgs';
 import './ThemeToggle_styles/ThemeToggle.scss';
 
 // 초기 테마 감지 함수
@@ -74,20 +72,15 @@ export const ThemeToggle: React.FC = () => {
       className="theme-toggle"
       onClick={toggleTheme}
       aria-label={`${isDark ? '라이트' : '다크'} 모드로 전환`}
-      style={
-        {
-          '--lightmode-icon': `url(${LightModeIcon.src})`,
-        } as React.CSSProperties
-      }
       suppressHydrationWarning
     >
-      <span suppressHydrationWarning>
+      <span className="theme-toggle__icon" suppressHydrationWarning>
         {mounted && isDark ? (
-          // 다크모드일 때 - Image 태그 사용
-          <Image src={DarkModeIcon} alt="라이트 모드로 전환" width={24} height={24} className="theme-toggle__icon" />
+          // 다크모드일 때 - 태양 아이콘 (하얀색)
+          <LightModeIcon />
         ) : (
-          // 라이트모드일 때 - span 태그에 background-image (SCSS에서 처리)
-          <span className="theme-toggle__icon theme-toggle__icon--bg" />
+          // 라이트모드일 때 - 달 아이콘
+          <DarkModeIcon />
         )}
       </span>
     </button>
