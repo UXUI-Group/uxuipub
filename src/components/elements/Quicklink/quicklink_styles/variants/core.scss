@@ -377,12 +377,12 @@ $IMG_PATH: '../../../../../images';
   &:focus {
     color: #051766;
     text-decoration: underline;
+    outline: 0 !important;
   }
-
-  &:focus-visible {
-    outline: 2px solid #051766;
-    outline-offset: 2px;
-  }
+  // &:focus-visible {
+  //   outline: 2px solid #051766;
+  //   outline-offset: 2px;
+  // }
 
   &:before {
     @media (min-width: 1060px) {
