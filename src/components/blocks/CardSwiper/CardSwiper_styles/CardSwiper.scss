@@ -73,11 +73,17 @@
 
   &__content {
     min-height: 8.4rem;
-    padding: 1.6rem 2.4rem;
+    padding: 1.6rem 2.4rem 2rem;
     font-size: 1.6rem;
-    line-height: 1.63;
+    text-wrap: balance;
     color: var(--color-text-primary);
     background-color: var(--color-background-inverse-toneup);
+
+    @media (min-width: 1060px) {
+      min-height: 9.6rem;
+      padding: 2rem 3rem 2.2rem;
+      font-size: 1.8rem;
+    }
   }
 }
 
@@ -112,7 +118,6 @@
     font-family: inherit;
     background: transparent;
     cursor: pointer;
-    background-color: pink;
     z-index: 1;
 
     display: flex;
@@ -128,11 +133,12 @@
 
     &:hover:not(.swiper-button-disabled),
     &:focus:not(.swiper-button-disabled) {
-      background-color: var(--color-background-dark-alpha);
       outline: 0;
+      background-color: var(--color-background-dark-alpha);
     }
 
     &.swiper-button-disabled {
+      outline: 0;
       background-color: var(--color-background-base-gray);
       opacity: 0.5;
       cursor: not-allowed;
@@ -164,6 +170,10 @@
         transform: scale(1.2);
       }
     }
+
+    @media (min-width: 1060px) {
+      left: 2rem;
+    }
   }
 
   &__button-next {
@@ -177,6 +187,10 @@
         transform: scale(1.2);
       }
     }
+
+    @media (min-width: 1060px) {
+      right: 2rem;
+    }
   }
 
   .swiper {
@@ -184,10 +198,8 @@
   }
 
   @media (min-width: 1060px) {
-    padding: 0 2rem;
-
     .swiper {
-      padding: 1rem 0;
+      padding: 1rem 2rem;
     }
   }
 }
