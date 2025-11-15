@@ -103,3 +103,19 @@
 - 전반적인 디자인 개선 및 최종 수정
 
 [0.1.7]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.7
+
+## [0.1.8] - 2025-11-15
+
+### 수정
+
+- 컴포넌트 스타일 및 레이아웃 최종 조정
+  - CardSwiper 반응형 스타일 개선
+  - 카드 콘텐츠 패딩 및 폰트 사이즈 조정 (모바일/PC)
+  - 네비게이션 버튼 위치 최적화
+  - text-wrap: balance 적용으로 텍스트 가독성 향상
+- 홈 페이지 섹션 스와이퍼 패딩 조정
+- NoticeBoard 상단 패딩 최적화
+- Header 레이아웃 정리
+- 접근성 개선 사항 추가 적용
+
+[0.1.8]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.8
