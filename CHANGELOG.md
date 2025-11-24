@@ -54,3 +54,68 @@
 - home 페이지에 불필요한 코드 삭제
 
 [0.1.5]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.5
+
+## [0.1.6] - 2025-11-11
+
+### 추가
+
+- Korean Air 브랜드 파비콘 구현
+  - 동그란 배경 디자인 적용
+  - 다크모드 자동 감지 및 색상 반전 지원
+  - 라이트 모드: 흰색 배경 + 브랜드 블루 (#0D3674)
+  - 다크 모드: 어두운 배경 + 흰색 로고
+- KoreanAirLogoIcon 컴포넌트 추가 (40x40 아이콘 버전)
+- 다크모드 테마 전환 시스템 구현
+  - localStorage 기반 사용자 테마 설정 저장
+  - 시스템 테마 자동 감지
+  - suppressHydrationWarning을 통한 SSR 깜빡임 방지
+- Korean Air 브랜드 이미지 추가 (A_PC_NEW_CI_ko.png)
+
+### 수정
+
+- 사이트 타이틀을 '대한항공'으로 변경
+- 메타데이터에 파비콘 설정 최적화 (SVG 우선)
+- 기존 favicon.ico 제거하여 SVG 파비콘 우선 적용
+- Header 레이아웃 및 스타일 개선
+- NoticeBoard 컴포넌트 스타일 업데이트
+- CardSwiper 컴포넌트 스타일 개선
+- Tabs 컴포넌트 스타일 업데이트 (core, type_a)
+- 글로벌 스타일 및 홈페이지 스타일 개선
+
+[0.1.6]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.6
+
+## [0.1.7] - 2025-11-12
+
+### 추가
+
+- 메인 페이지 모티프 이미지 적용
+  - PC, 태블릿, 모바일 반응형 이미지 지원
+
+### 수정
+
+- 접근성 개선
+  - 키보드 네비게이션 지원 강화
+  - ARIA 속성 추가 및 최적화
+- 공지사항 배경 디자인 제거
+- 퀵링크 모바일 레이아웃 개선
+- 컨테이너 사이즈 최적화
+- 경고 문구 제거 및 코드 정리
+- 전반적인 디자인 개선 및 최종 수정
+
+[0.1.7]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.7
+
+## [0.1.8] - 2025-11-15
+
+### 수정
+
+- 컴포넌트 스타일 및 레이아웃 최종 조정
+  - CardSwiper 반응형 스타일 개선
+  - 카드 콘텐츠 패딩 및 폰트 사이즈 조정 (모바일/PC)
+  - 네비게이션 버튼 위치 최적화
+  - text-wrap: balance 적용으로 텍스트 가독성 향상
+- 홈 페이지 섹션 스와이퍼 패딩 조정
+- NoticeBoard 상단 패딩 최적화
+- Header 레이아웃 정리
+- 접근성 개선 사항 추가 적용
+
+[0.1.8]: https://github.com/UXUI-Group/uxuipub/releases/tag/v0.1.8
